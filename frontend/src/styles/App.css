@@ -4,12 +4,16 @@
 }
 
 .bod{
+    display: flex;
+    justify-content: center;
     width: 1200px;
     height: 800px;
     background-color: #9595951e;
     margin-right: auto;
     margin-left: auto;
     margin-top: 80px;
+    gap: 70px;
+    
 }
 
 body{
@@ -40,6 +44,18 @@ input{
     gap: 8px;
 }
 .form{
-    padding-left: 50px;
     padding-top: 60px;
+}
+
+.aside {
+    margin-top: 40px;
+    border-radius: 60px 0px 60px 0px;
+    height: 90%;
+    width: 55%;
+    display: flex;
+    background-color: aqua;
+}
+
+.btn{
+    
 }
