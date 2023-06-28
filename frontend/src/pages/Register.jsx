@@ -18,11 +18,11 @@ const Register = () => {
     setinputs((prev)=>({...prev,[e.target.name]:e.target.value}))
   }
   
-  const handleClick = async e =>{
-    e.preventDefault()
+  const handleClick = async (e) =>{
+    e.preventDefault();
     
     try{
-      await axios.post("localhost:8800/api/v1/auth/register", inputs)
+      await axios.post("http://localhost:8800/api/v1/auth/register", inputs)
     } catch (err) {
       setErr(true)
     }
