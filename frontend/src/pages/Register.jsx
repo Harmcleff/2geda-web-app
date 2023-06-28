@@ -3,7 +3,7 @@ import "../styles/App.css";
 import axios from "axios";
 const Register = () => {
   //const [mobile, setMobile] = useState("");
-  const [err, setErr] = useState(false)
+  const [err, setErr] = useState(null)
   const [inputs, setinputs] = useState({
     username:"",
     email:"",
@@ -24,7 +24,7 @@ const Register = () => {
     try{
       await axios.post("http://localhost:8800/api/v1/auth/register", inputs)
     } catch (err) {
-      setErr(true)
+      setErr(err.response.data)
     }
     
   };
@@ -93,7 +93,7 @@ const Register = () => {
           />
           <br />
           <br />
-          
+          {err && err}
           <button className="btn" onClick={handleClick}>CREATE ACCOUNT</button>
         </form>
         <div className="aside">

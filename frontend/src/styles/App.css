@@ -42,6 +42,12 @@ input{
 
 #gender{
     width: 80px;
+    height: 30px;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    background: none;
+    border-bottom: solid 2px #2323237a;
 }
 .inner{
     display: flex;
