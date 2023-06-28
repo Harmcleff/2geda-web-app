@@ -1,8 +1,8 @@
 import { BrowserRouter } from "react-router-dom";
 import { Routes, Route } from "react-router-dom"
-import Register from './pages/Register';
-import Home from './pages/Home';
-import Login from './pages/Login';
+import Register from './register/Register';
+import Home from './home/Home';
+import Login from './login/Login';
 
 
 
@@ -11,6 +11,7 @@ function App() {
 
   return (
     <>
+      <Login/>
       <BrowserRouter>
       <Routes>
         <Route path="/" element={ <Home/> } />
