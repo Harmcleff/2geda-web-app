@@ -1,5 +1,7 @@
 import { useState } from "react";
 import "../styles/App.css";
+import { Link } from "react-router-dom";
+
 const Register = () => {
   const [mobile, setMobile] = useState("");
 
@@ -13,8 +15,14 @@ const Register = () => {
     <>
       <div className="bod">
         <form className="form">
-          <h1>Login</h1>
-          <p id>It's quick and easy.</p>
+        <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          
+          <h1>Sign in to 2geda</h1>
+        
           
           <br />
           <br />
@@ -37,7 +45,15 @@ const Register = () => {
           
          
 
-          <button className="btn">LOG IN</button>
+          <button className="btn">Log in</button>
+          <br/>
+          <br/>
+          <button className="btn-u">Forgot password?</button>
+          <br/>
+
+          <br/>
+          <span>Don't you have an account? <Link to="/register" > Sign up</Link> </span> 
+          
         </form>
         <div className="aside">
           <br />

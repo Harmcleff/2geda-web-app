@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "../styles/App.css";
 import axios from "axios";
+import { Link } from "react-router-dom";
 const Register = () => {
   //const [mobile, setMobile] = useState("");
   const [err, setErr] = useState(null)
@@ -40,6 +41,7 @@ const Register = () => {
 
   return (
     <>
+    <div className="wrapper">
       <div className="bod">
         <form className="form">
           <h1>Create an Account</h1>
@@ -94,7 +96,10 @@ const Register = () => {
           <br />
           <br />
           {err && err}
-          <button className="btn" onClick={handleClick}>CREATE ACCOUNT</button>
+          <button className="btn" onClick={handleClick}>Sign up</button>
+          <br/>
+          <br/>
+          <span>Have an account already? <Link to="/login"> Log in</Link> </span> 
         </form>
         <div className="aside">
           <br />
@@ -103,6 +108,7 @@ const Register = () => {
           <div className="aside-bg"></div>
           <div></div>
         </div>
+      </div>
       </div>
     </>
   );
