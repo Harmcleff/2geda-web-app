@@ -1,8 +1,6 @@
 import {Link, Outlet } from "react-router-dom";
 
 
-Outlet;
-
 const Home = () => {
   return (
     <div>

@@ -1,21 +1,48 @@
-
-import { Routes, Route } from "react-router-dom";
-import Register from "./register/Register";
-import Home from "./home/Home";
-import Login from "./login/Login";
+import Register from "./pages/register/Register";
+import Home from "./pages/home/Home";
+import Login from "./pages/login/Login";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Route,
+  Outlet
+} from "react-router-dom";
 
 function App() {
-  return (
-    <>
-      
-        <Routes>
-          <Route path="/" element={<Home />}>
-            <Route path="register" element={<Register />} />
-            <Route path="login" element={<Login />} />
-          </Route>
-        </Routes>
+  
+  const layout =()=>{
     
-    </>
+    <navbar/>
+    
+  
+    
+    return (
+      <div>
+        
+      </div>
+    )
+  }
+  
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Home/>,
+    },
+    {
+      path: "/register",
+      element: <Register/>,
+    },
+    {
+      path: "/login",
+      element: <Login/>,
+    }
+  ]);
+  return (
+    <div>
+      
+      <RouterProvider router={router} />
+    
+    </div>
   );
 }
 
