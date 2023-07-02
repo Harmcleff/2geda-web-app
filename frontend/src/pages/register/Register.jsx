@@ -14,6 +14,8 @@ const Register = () => {
     name: "",
     gender: "",
   });
+  
+  
 
   const handleChange = (e) => {
     setinputs((prev) => ({ ...prev, [e.target.name]: e.target.value }))

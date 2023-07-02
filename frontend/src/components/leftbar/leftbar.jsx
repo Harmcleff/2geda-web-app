@@ -1,7 +1,9 @@
 import React from 'react'
 
-export const leftbar = () => {
+ const leftbar = () => {
   return (
     <div>leftbar</div>
   )
 }
+
+export default leftbar;

@@ -1,15 +1,16 @@
 import {Link, Outlet } from "react-router-dom";
+import "./home.scss"
 
 
 const Home = () => {
   return (
     <div>
-        <Link to="/" >
+       
       <h1>
         Home
       </h1>
-      </Link>
-      <Outlet />
+      
+      
     </div>
   );
 };

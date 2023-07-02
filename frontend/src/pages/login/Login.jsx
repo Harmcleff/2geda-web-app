@@ -13,47 +13,31 @@ const Register = () => {
 
   return (
     <>
+    <div className="wrapper">
       <div className="bod">
-        <form className="form">
-        <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          
+        <form className="form" >
+         
+
           <h1>Sign in to 2geda</h1>
-        
+
+
+          <br />
           
+          <input placeholder="Username" id="username" type="text" />
           <br />
           <br />
 
-          <label htmlFor="username">Username</label>
+          <input placeholder="Password" id="password" type="password" />
           <br />
-          <input id="username" type="text" />
-          <br />
-          <br />
-
-
-          <label htmlFor="password">Password</label>
-          <br />
-          <input id="password" type="password" />
-          <br />
-          <br />
-         
-          <br />
-        
-          
-         
-
           <button className="btn">Log in</button>
-          <br/>
-          <br/>
+          <br />
+          <br />
           <button className="btn-u">Forgot password?</button>
-          <br/>
+          <br />
 
-          <br/>
-          <span>Don't you have an account? <Link to="/register" > Sign up</Link> </span> 
-          
+          <br />
+          <span>Don't you have an account? <Link to="/register" > Sign up</Link> </span>
+
         </form>
         <div className="aside">
           <br />
@@ -62,6 +46,7 @@ const Register = () => {
           <div className="aside-bg"></div>
           <div></div>
         </div>
+      </div>
       </div>
     </>
   );
