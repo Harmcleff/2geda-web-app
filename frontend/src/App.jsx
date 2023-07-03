@@ -20,8 +20,8 @@ function App() {
     return (
       <div>
         <Navbar />
-        <div style={{ display: "flex" }}>
-          <Leftbar />
+        <div style={{ display: "flex"}}>
+          <Leftbar  />
           <Outlet />
           <Rightbar />
         </div>

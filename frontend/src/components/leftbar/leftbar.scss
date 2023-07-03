@@ -1,0 +1,32 @@
+.leftBar {
+    border-right: 1px solid lightgray;
+    justify-content: center;
+    
+
+    .container {
+
+
+        .menu {
+            display: flex;
+
+            .user {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 5px;
+                font-weight: 500;
+
+                img {
+                    border-radius: 50%;
+                    width: 30px;
+                    height: 30px;
+                    object-fit: cover;
+
+
+                }
+
+                span {}
+            }
+        }
+    }
+}
