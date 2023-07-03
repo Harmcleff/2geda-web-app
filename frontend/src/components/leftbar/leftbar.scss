@@ -1,20 +1,37 @@
 .leftBar {
-    border-right: 1px solid lightgray;
-    justify-content: center;
+    flex: 2;
+    position: sticky;
+    top: 71px;
+    height: calc(100vh - 96px);
+    overflow: scroll;
     
+    &::-webkit-scrollbar{
+        display: none;
+    }
+
 
     .container {
-
+            padding: 20px;
+            
+            
+        hr{
+            margin: 20px 0px;
+            border: none;
+            height: 0.5px;
+            background: lightgrey;
+        }
 
         .menu {
             display: flex;
+            flex-direction: column;
+            gap: 20px;
+            
+            font-size: 12px;
 
             .user {
                 display: flex;
-                justify-content: center;
                 align-items: center;
-                gap: 5px;
-                font-weight: 500;
+                gap: 10px;
 
                 img {
                     border-radius: 50%;
@@ -25,7 +42,23 @@
 
                 }
 
-                span {}
+
+                span {
+                    font-size: 14px;
+                }
+            }
+
+            .item {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+
+                img {
+                    width: 30px;
+                    
+                }
+                
+                font-size: 14px;
             }
         }
     }

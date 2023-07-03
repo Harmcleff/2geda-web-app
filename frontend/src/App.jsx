@@ -20,9 +20,12 @@ function App() {
     return (
       <div>
         <Navbar />
-        <div style={{ display: "flex"}}>
-          <Leftbar  />
-          <Outlet />
+        <div style={{ display: "flex" }}>
+          <Leftbar />
+          <div style={{ flex: 6 }}>
+            <Outlet />
+          </div>
+
           <Rightbar />
         </div>
 
@@ -42,10 +45,10 @@ function App() {
     {
       path: "/",
       element: [
-      <ProtectedRoute>
-        <Layout />
-      </ProtectedRoute>
-        ],
+        <ProtectedRoute>
+          <Layout />
+        </ProtectedRoute>
+      ],
       children: [
         {
           path: "/",

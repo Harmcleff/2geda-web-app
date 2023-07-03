@@ -1,4 +1,4 @@
-import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
+import PersonRoundedIcon from '@mui/icons-material/PersonRounded';
 import MessageRoundedIcon from '@mui/icons-material/MessageRounded';
 import "./navbar.scss"
 import DarkModeRoundedIcon from '@mui/icons-material/DarkModeRounded';
@@ -29,11 +29,12 @@ const navbar = () => {
         
       </div>
       <div className="rightbar">
+        <div className="icon"><PersonRoundedIcon/></div>
         <div className="icon"><MessageRoundedIcon/></div>
         <div className="icon"><NotificationsRoundedIcon/></div>
         <div className="user">
          { <img src={ProfImg}/>}
-          <span>Mido cleff</span>
+          
         </div>
       </div>
     </div>
