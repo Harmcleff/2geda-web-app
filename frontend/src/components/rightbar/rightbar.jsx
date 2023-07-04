@@ -6,7 +6,7 @@ const rightbar = () => {
     <div className="Rightbar">
       <div className="container">
         <div className="item">
-          <span>Suggestion For You</span>
+          <span className="hline">Suggestion For You</span>
           <div className="user">
             <div className="userInfo">
               <img src={ProfImg} alt="" />
@@ -32,29 +32,131 @@ const rightbar = () => {
 
           </div>
         </div>
+        <hr />
         <div className="item">
-          <span>Latest Activities</span>
+          <span className="hline">Online Friends</span>
           <div className="user">
             <div className="userInfo">
               <img src={ProfImg} alt="" />
-              <p>
+              <div className="online"/>
+              <span>San Harmcleff</span>
+
+            </div>
+
+
+          </div>
+          <div className="user">
+            <div className="userInfo">
+              <img src={ProfImg} alt="" />
+              <div className="online"/>
               <span>Sanyaolu Hammed</span>
-              changed their cover photo
-              </p>
+
             </div>
-            
+
 
           </div>
           <div className="user">
             <div className="userInfo">
               <img src={ProfImg} alt="" />
-              <p>
-              <span>Sanyaolu Hammed</span>changed their cover photo
-              </p>
+              <div className="online"/>
+              <span>San Beebah</span>
+
             </div>
-            <span>1 min ago</span>
+
 
           </div>
+          <div className="user">
+            <div className="userInfo">
+              <img src={ProfImg} alt="" />
+              <div className="online"/>
+              <span>Hay why</span>
+
+            </div>
+
+
+          </div>
+          <div className="user">
+            <div className="userInfo">
+              <img src={ProfImg} alt="" />
+              <div className="online"/>
+              <span>Hay why</span>
+
+            </div>
+
+
+          </div>
+          <div className="user">
+            <div className="userInfo">
+              <img src={ProfImg} alt="" />
+              <div className="online"/>
+              <span>Hay why</span>
+
+            </div>
+
+
+          </div>
+          <div className="user">
+            <div className="userInfo">
+              <img src={ProfImg} alt="" />
+              <div className="online"/>
+              <span>Hay why</span>
+
+            </div>
+
+
+          </div>
+          <div className="user">
+            <div className="userInfo">
+              <img src={ProfImg} alt="" />
+              <div className="online"/>
+              <span>Hay why</span>
+
+            </div>
+
+
+          </div>
+          <div className="user">
+            <div className="userInfo">
+              <img src={ProfImg} alt="" />
+              <div className="online"/>
+              <span>Hay why</span>
+
+            </div>
+
+
+          </div>
+          <div className="user">
+            <div className="userInfo">
+              <img src={ProfImg} alt="" />
+              <div className="online"/>
+              <span>Hay why</span>
+
+            </div>
+
+
+          </div>
+          <div className="user">
+            <div className="userInfo">
+              <img src={ProfImg} alt="" />
+              <div className="online"/>
+              <span>Hay why</span>
+
+            </div>
+
+
+          </div>
+          <div className="user">
+            <div className="userInfo">
+              <img src={ProfImg} alt="" />
+              <div className="online"/>
+              <span>Hay why</span>
+
+            </div>
+
+
+          </div>
+          
+          
         </div>
 
       </div>

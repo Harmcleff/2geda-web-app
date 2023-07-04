@@ -1,0 +1,114 @@
+.light{
+    
+    .navbar{
+        background-color: white;
+    }
+}
+
+
+.dark{
+    background: #333;
+    
+    
+    .navbar{
+        background-color: #222;
+        color: whitesmoke;
+        border-bottom: 1px solid #444;
+        
+        .leftbar{
+            
+            
+            .icon{
+                background: #333;
+            }
+            
+            span{
+                color: whitesmoke;
+            }
+        }
+        
+        .centerback{
+            
+            
+            .search{
+                background: whitesmoke;
+            }
+        }
+        
+        .rightbar{
+            
+            .icon{
+                background: #333;
+            }
+            
+            .user{
+                
+                img{
+                    border: 1px solid rgb(249, 5, 249);
+                }
+            }
+        }
+    }
+    .leftBar{
+        color: whitesmoke;
+        
+        .container{
+            
+            hr{
+                background: #444;
+            }
+        }
+    }
+    .Rightbar{
+        
+        .container{
+            
+            hr{
+                background: #444;
+            }
+            
+            .item{
+               
+                color: whitesmoke;
+                
+                span{
+                    color: whitesmoke;
+                }
+            }
+            .user{
+                
+                .userInfo{
+                    
+                    span{
+                        color: whitesmoke;
+                    }
+                }
+            }
+        }
+    }
+    
+    .home{
+        
+        .stories{
+            
+            background: #222;
+            
+            .arrowBack{
+                background: #222;
+                color: whitesmoke;
+            }
+            
+            .arrowForward{
+                background: #222;
+                color: whitesmoke;
+            }
+        }
+        
+        .post{
+            background: #222;
+            color: whitesmoke;
+        }
+    }
+    
+    
+}

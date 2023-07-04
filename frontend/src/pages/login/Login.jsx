@@ -1,8 +1,19 @@
 import { useState } from "react";
 import "./login.scss";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../context/authContext"; 
 
-const Register = () => {
+
+const Login = () => {
+  
+  const {login} = useContext(AuthContext);
+  
+  
+  const handlelogin = () => {
+    login();
+  }
+  
   const [mobile, setMobile] = useState("");
 
   // validate value
@@ -29,7 +40,7 @@ const Register = () => {
 
           <input placeholder="Password" id="password" type="password" />
           <br />
-          <button className="btn">Log in</button>
+          <button className="btn" onClick={handlelogin}>Log in</button>
           <br />
           <br />
           <button className="btn-u">Forgot password?</button>
@@ -52,4 +63,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Login;

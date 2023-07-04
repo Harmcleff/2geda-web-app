@@ -1,4 +1,5 @@
 import Register from "./pages/register/Register";
+import "./style.scss"
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import Navbar from "./components/navbar/navbar"
@@ -12,15 +13,22 @@ import {
   Outlet,
   Navigate
 } from "react-router-dom";
+import { useContext } from "react";
+import { DarkModeContext } from "./context/DarkModecontext";
+import { AuthContext } from "./context/authContext"; 
 
 function App() {
-  const currentUser = true;
+  const {currentUser, login} = useContext(AuthContext);
+  
+  const {darkMode} = useContext(DarkModeContext);
+  
+  console.log(currentUser)
 
   const Layout = () => {
     return (
-      <div>
+      <div className={darkMode ? "dark" : "light"} >
         <Navbar />
-        <div style={{ display: "flex" }}>
+        <div className="fw" style={{ display: "flex", }}>
           <Leftbar />
           <div style={{ flex: 6 }}>
             <Outlet />

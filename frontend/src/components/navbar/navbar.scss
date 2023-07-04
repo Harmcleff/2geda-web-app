@@ -11,6 +11,7 @@
     background: white;
     position: sticky;
     top: 0;
+    z-index: 999;
 
     .leftbar {
         display: flex;
@@ -53,7 +54,8 @@
                 border: none;
                 padding: 5px;
                 background: transparent;
-                font-size: 16pt;
+                font-size: 11pt;
+                font-family: inherit;
               
             }
 

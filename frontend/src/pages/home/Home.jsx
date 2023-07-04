@@ -1,77 +1,14 @@
 import {Link, Outlet } from "react-router-dom";
 import "./home.scss"
+import { Stories } from "../../components/stories/Stories";
+import { Posts } from "../../components/posts/Posts";
 
 
 const Home = () => {
   return (
-    <div>
-       
-      <h1>
-        Home
-      </h1>
-      <h1>
-        Home
-      </h1>
-      <h1>
-        Home
-      </h1>
-      <h1>
-        Home
-      </h1>
-      <h1>
-        Home
-      </h1>
-      <h1>
-        Home
-      </h1>
-      <h1>
-        Home
-      </h1>
-      <h1>
-        Home
-      </h1>
-      <h1>
-        Home
-      </h1>
-      <h1>
-        Home
-      </h1>
-      <h1>
-        Home
-      </h1>
-      <h1>
-        Home
-      </h1>
-      <h1>
-        Home
-      </h1>
-      <h1>
-        Home
-      </h1>
-      <h1>
-        Home
-      </h1>
-      <h1>
-        Home
-      </h1>
-      <h1>
-        Home
-      </h1>
-      <h1>
-        Home
-      </h1>
-      <h1>
-        Home
-      </h1>
-      <h1>
-        Home
-      </h1>
-      <h1>
-        Home
-      </h1>
-      <h1>
-        Home
-      </h1>
+    <div className="home">
+      <Stories/>
+      <Posts/>
       
       
     </div>
