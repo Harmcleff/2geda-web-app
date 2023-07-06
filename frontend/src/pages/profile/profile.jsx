@@ -2,7 +2,7 @@
 
 const profile = () => {
   return (
-    <div>profile<HomeRoundedIcon/></div>
+    <div>profile</div>
   )
 }
 

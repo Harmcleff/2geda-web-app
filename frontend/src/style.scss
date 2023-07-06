@@ -1,3 +1,8 @@
+.fw{
+    display: flex;
+    justify-content: center;
+}
+
 .light{
     
     .navbar{
@@ -107,6 +112,17 @@
         .post{
             background: #222;
             color: whitesmoke;
+            
+            .content{
+                color: whitesmoke;
+            }
+            
+            .info{
+                
+                .item{
+                    color: whitesmoke;
+                }
+            }
         }
     }
     

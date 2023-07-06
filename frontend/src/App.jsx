@@ -6,6 +6,8 @@ import Navbar from "./components/navbar/navbar"
 import Leftbar from "./components/leftbar/leftbar"
 import Rightbar from "./components/rightbar/rightbar"
 import Profile from "./pages/profile/profile"
+import Landing from "./pages/landipage/landingpage"
+import Error404 from "./pages/Error404/Error404"
 import {
   createBrowserRouter,
   RouterProvider,
@@ -28,7 +30,7 @@ function App() {
     return (
       <div className={darkMode ? "dark" : "light"} >
         <Navbar />
-        <div className="fw" style={{ display: "flex", }}>
+        <div className="fw" style={{ display: "flex", justifyContent: "center" }}>
           <Leftbar />
           <div style={{ flex: 6 }}>
             <Outlet />
@@ -43,7 +45,7 @@ function App() {
 
   const ProtectedRoute = ({ children }) => {
     if (!currentUser) {
-      return <Navigate to="/login" />
+      return <Navigate to="/home" />
     }
 
     return children
@@ -76,6 +78,12 @@ function App() {
     {
       path: "/login",
       element: <Login />,
+    },{
+      path: "/home",
+      element: <Landing/>,
+    },{
+      path: "*",
+      element: <Error404/>,
     }
   ]);
   return (

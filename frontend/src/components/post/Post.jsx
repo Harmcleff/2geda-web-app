@@ -1,15 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./Post.scss"
 import FavoriteRoundedIcon from '@mui/icons-material/FavoriteRounded';
 import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
 import MoreHorizRoundedIcon from '@mui/icons-material/MoreHorizRounded';
 import CommentRoundedIcon from '@mui/icons-material/CommentRounded';
 import IosShareOutlinedIcon from '@mui/icons-material/IosShareOutlined';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faComment } from '@fortawesome/free-solid-svg-icons';
+import { faShare } from '@fortawesome/free-solid-svg-icons';
+import {Comments} from "../comments/Comments"
 
 import { Link } from 'react-router-dom';
 
 const Post = ({ post }) => {
+    const [commentOpen, setCommentOpen] = useState(false);
+    
     const liked = false;
     return (
         <div className="post">
@@ -36,15 +41,16 @@ const Post = ({ post }) => {
                     {liked ? <FavoriteRoundedIcon/>:<FavoriteBorderRoundedIcon/> }
                     1.2k Likes
                     </div>
-                    <div className="item">
-                    <FontAwesomeIcon icon="fa-solid fa-cart-shopping" />
+                    <div className="item" onClick={() => setCommentOpen(!commentOpen)}>
+                    <FontAwesomeIcon icon={faComment} />
                     1.2k Comments
                     </div>
                     <div className="item">
-                    
+                    <FontAwesomeIcon icon={faShare} />
                     Share 
                     </div>
                 </div>
+                {commentOpen && <Comments/>}
             </div>
         </div>
     )
