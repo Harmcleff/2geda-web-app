@@ -422,11 +422,34 @@
             margin-top: 50px;
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 70px;
             padding-right: 550px;
 
+            .contain {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding-right: 190px;
+            }
+
+            p {
+                line-height: 40px;
+                font-weight: 400;
+            }
 
             .profil {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+
+                span {
+                    font-size: 18px;
+                    font-weight: 550;
+                    margin-bottom: 10px;
+                }
+
+
 
                 img {
                     width: 200px;
@@ -436,28 +459,87 @@
                     background-image: white;
                     border: 10px solid rgba(255, 255, 255, 0.262);
                     cursor: pointer;
-                    
-                    &:hover{
+
+                    &:hover {
                         border: 25px solid rgba(255, 255, 255, 0.262);
                     }
                 }
-                
-                .social{
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        gap: 20px;
-                    
-                    .item{
-                        
-                        img{
-                            
+
+                .social {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 20px;
+
+                    .item {
+
+                        img {
+
                             width: 40px;
                             height: 40px;
                             border: 3px solid rgba(255, 255, 255, 0.262);
                         }
                     }
                 }
+            }
+        }
+
+        .repo {
+
+            button {
+                border: 2px solid #4b0082;
+                height: 65px;
+                width: 280px;
+                color: #15171a;
+                font-family: inherit;
+                font-weight: 500;
+                border-radius: 16px;
+                font-size: 18px;
+                cursor: pointer;
+                padding-right: 20px;
+                position: relative;
+                color: #4b0082;
+                background: transparent;
+
+                &:hover {
+                    border: none;
+                    color: white;
+                    background: #4b0082;
+                }
+            }
+
+
+        }
+    }
+
+    .footer {
+        background: #000;
+        height: 60px;
+
+        .foot {
+            padding-left: 300px;
+            padding-right: 300px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            
+            .txxt{
+               
+            }
+            
+            p{
+                color: white;
+                cursor: pointer;
+                
+                &:hover{
+                    color: #e45cff;
+                }
+            }
+            span {
+                font-size: 25pt;
+                font-weight: 600;
+                color: white;
+                cursor: pointer;
             }
         }
     }

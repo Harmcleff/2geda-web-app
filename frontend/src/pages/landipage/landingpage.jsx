@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
-import Mypic from '../../assets/immg.jpg';
+import Mypic from '../../assets/dev.jpg';
 import Linkedin from '../../assets/linkedin.svg';
 import Github from '../../assets/github-logo.png';
 import Twitter from '../../assets/twitter.png';
@@ -145,23 +145,52 @@ const landingpage = () => {
                 <div className="inspire">
                     <div className="profil">
                         <img src={Mypic} alt="" />
+                        <span>Sanyaolu Hammed</span>
                         <div className="social">
                             <div className="item">
-                                <img src={Linkedin} alt="" />
+                                <Link to="https://www.linkedin.com/in/sanyaolu-hammed-b1996a105/">
+                                    <img src={Linkedin} alt="" />
+                                </Link>
                             </div>
                             <div className="item">
-                                <img src={Github} alt="" />
+                                <Link to="https://github.com/Harmcleff">
+                                    <img src={Github} alt="" />
+                                </Link>
                             </div>
                             <div className="item">
-                                <img src={Twitter} alt="" />
+                                <Link to="https://twitter.com/harmcleff">
+                                    <img src={Twitter} alt="" />
+                                </Link>
                             </div>
                         </div>
                     </div>
-                    <p>I'm Sanyaolu Hammed, a student of 
+                    <div className="contain">
+                        <p>I'm currently studying software engineering at ALX, I have always been curious about how data are been processed in a social network app especially Facebook, so when I was given the opportunity to pick my project, that was what came to my mind first.<br />
+                            Facebook is a popular social media platform founded by Mark Zuckerberg. It allows users to create profiles, connect with friends and family, share photos and videos, and communicate through messages and comments. Facebook has grown into one of the largest social networking platforms in the world, with billions of active users.
 
-                       </p>
+                        </p>
+                        <div className="repo">
+                            <br />
+                            <Link to="https://github.com/Harmcleff/Social-Network-app">
+                                <button>View Project repository</button>
+                            </Link>
+                        </div>
+                    </div>
                 </div>
 
+            </div>
+            <div className="footer">
+                <div className="foot">
+                    <Link to="/">
+                        <span>2geda</span>
+                    </Link>
+                    <div className="txxt">
+                        <Link to="https://github.com/Harmcleff/Social-Network-app">
+                            <p>Portfolio Project for Holberton School 2023</p>
+                        </Link>
+                    </div>
+
+                </div>
             </div>
         </div>
 

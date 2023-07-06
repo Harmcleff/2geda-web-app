@@ -15,11 +15,36 @@ export const Posts = () => {
     {
       id: 2,
       name: "Akinola Abibat",
-      userId: 1,
+      userId: 2,
       profilePic: "https://images.pexels.com/photos/11503422/pexels-photo-11503422.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       desc: "Na me post am o, Gbayii",
 
-    }
+    },
+    {
+      id: 3,
+      name: "Norman Laroche",
+      userId: 3,
+      profilePic: "https://images.pexels.com/photos/3608206/pexels-photo-3608206.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      desc: "",
+      img: "https://images.pexels.com/photos/3179783/pexels-photo-3179783.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    },
+    ,
+    {
+      id: 4,
+      name: "Charlotte Thomas",
+      userId: 4,
+      profilePic: "https://images.pexels.com/photos/3657506/pexels-photo-3657506.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+      desc: "",
+      img: "https://images.pexels.com/photos/2866081/pexels-photo-2866081.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    },
+    {
+      id: 5,
+      name: "Angela Wilson",
+      userId: 3,
+      profilePic: "https://images.pexels.com/photos/2932748/pexels-photo-2932748.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+      desc: "",
+      img: "https://images.pexels.com/photos/2932727/pexels-photo-2932727.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    },
   ]
   return (
     <div className='posts'>

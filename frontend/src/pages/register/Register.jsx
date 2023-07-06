@@ -43,8 +43,12 @@ const Register = () => {
 
   return (
     <>
-      
-        <div className="wrapper">
+
+      <div className="wrapper">
+        <div className="curv">
+        <Link to="/">
+            <span className="log">2geda</span>
+          </Link>
           <div className="bod">
             <form className="form">
               <h1>Create an Account</h1>
@@ -111,7 +115,8 @@ const Register = () => {
             </div>
           </div>
         </div>
-     
+      </div>
+
     </>
   );
 };

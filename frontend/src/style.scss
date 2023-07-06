@@ -1,130 +1,146 @@
-.fw{
+.fw {
     display: flex;
     justify-content: center;
 }
 
-.light{
-    
-    .navbar{
+.light {
+
+    .navbar {
         background-color: white;
     }
 }
 
 
-.dark{
+.dark {
     background: #333;
-    
-    
-    .navbar{
+
+
+    .navbar {
         background-color: #222;
         color: whitesmoke;
         border-bottom: 1px solid #444;
-        
-        .leftbar{
-            
-            
-            .icon{
+
+        .leftbar {
+
+
+            .icon {
                 background: #333;
             }
-            
-            span{
+
+            span {
                 color: whitesmoke;
             }
         }
-        
-        .centerback{
-            
-            
-            .search{
+
+        .centerback {
+
+
+            .search {
                 background: whitesmoke;
             }
         }
-        
-        .rightbar{
-            
-            .icon{
+
+        .rightbar {
+
+            .icon {
                 background: #333;
             }
-            
-            .user{
-                
-                img{
+
+            .user {
+
+                img {
                     border: 1px solid rgb(249, 5, 249);
                 }
             }
         }
     }
-    .leftBar{
+
+    .leftBar {
         color: whitesmoke;
-        
-        .container{
-            
-            hr{
+
+        .container {
+
+            hr {
                 background: #444;
             }
         }
     }
-    .Rightbar{
-        
-        .container{
-            
-            hr{
+
+    .Rightbar {
+
+        .container {
+
+            hr {
                 background: #444;
             }
-            
-            .item{
-               
+
+            .item {
+
                 color: whitesmoke;
-                
-                span{
+
+                span {
                     color: whitesmoke;
                 }
             }
-            .user{
-                
-                .userInfo{
-                    
-                    span{
+
+            .user {
+
+                .userInfo {
+
+                    span {
                         color: whitesmoke;
                     }
                 }
             }
         }
     }
-    
-    .home{
-        
-        .stories{
-            
+
+    .home {
+
+        .stories {
+
             background: #222;
-            
-            .arrowBack{
+
+            .arrowBack {
                 background: #222;
                 color: whitesmoke;
             }
-            
-            .arrowForward{
+
+            .arrowForward {
                 background: #222;
                 color: whitesmoke;
             }
         }
-        
-        .post{
+
+        .post {
             background: #222;
             color: whitesmoke;
-            
-            .content{
+
+            .content {
                 color: whitesmoke;
             }
-            
-            .info{
-                
-                .item{
+
+            .info {
+
+                .item {
                     color: whitesmoke;
                 }
             }
         }
+
+        .comments {
+
+            .comment {
+
+                .info {
+
+                    .bg {
+                        background: #444;
+                    }
+                }
+            }
+        }
     }
-    
-    
+
+
 }
