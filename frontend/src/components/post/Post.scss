@@ -61,9 +61,9 @@
         .info {
             display: flex;
             align-items: center;
-            gap: 20px;
+            
             justify-content: center;
-            gap: 110px;
+            
             
 
             .item {
@@ -73,7 +73,13 @@
                 cursor: pointer;
                 justify-content: center;
                 color: rgb(97, 95, 95);
-                font-size: 14px;
+                font-size: 16px;
+                padding: 5px 70px;
+                
+                
+                &:hover{
+                    background: #33333312;
+                }
                 
               
             }

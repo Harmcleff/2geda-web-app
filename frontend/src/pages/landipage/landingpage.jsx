@@ -8,6 +8,7 @@ import Mypic from '../../assets/dev.jpg';
 import Linkedin from '../../assets/linkedin.svg';
 import Github from '../../assets/github-logo.png';
 import Twitter from '../../assets/twitter.png';
+import DarkModeRoundedIcon from '@mui/icons-material/DarkModeRounded';
 
 const landingpage = () => {
     return (

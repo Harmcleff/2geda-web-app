@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./login.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context/authContext";
 
@@ -10,8 +10,14 @@ const Login = () => {
   const { login } = useContext(AuthContext);
 
 
-  const handlelogin = () => {
+  const handlelogin = (e) => {
+    
+    e.preventDefault()
     login();
+    
+    
+    
+    
   }
 
   const [mobile, setMobile] = useState("");

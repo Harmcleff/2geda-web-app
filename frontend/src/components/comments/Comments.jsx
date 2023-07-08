@@ -1,7 +1,12 @@
+import { AuthContext } from "../../context/authContext"
 import "./Comments.scss"
-import React from 'react'
+import React, { useContext } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+
 
 export const Comments = () => {
+    const {currentUser} = useContext(AuthContext)
     const comments = [
         {
             id: 1,
@@ -20,13 +25,20 @@ export const Comments = () => {
     ]
     return (
         <div className="comments">
+            <div className="write">
+                <img src={currentUser.profilePic} alt="" />
+                <div htmlFor="com" html className="input">
+                <input type="text" id="com" placeholder="Write a comment" />
+                <button><FontAwesomeIcon icon={faPaperPlane} /></button>
+                </div>
+            </div>
             {comments.map(comment => (
                 <div className="comment">
                     <img src={comment.profilePic} alt={comment.name} />
                     <div className="info">
                         <div className="bg">
-                        <span>{comment.name}</span>
-                        <p>{comment.desc}</p>
+                            <span>{comment.name}</span>
+                            <p>{comment.desc}</p>
                         </div>
                     </div>
                     <span className="date">1 hour ago</span>

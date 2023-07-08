@@ -4,13 +4,15 @@ import { useContext } from "react";
 import { AuthContext } from "../../context/authContext";
 import ArrowBackIosNewOutlinedIcon from '@mui/icons-material/ArrowBackIosNewOutlined';
 import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
-import showstories from '../showstories/showstories';
+import Showstore from '../showstories/showstories';
+import { ShowStoriesContext } from "../../context/showStoriesContext"; 
+import {Showstories} from "../showstories/showstories"
 export const Stories = () => {
-    
+    const {showStories, showHide} = useContext(ShowStoriesContext)
 
-    const {currentUser} = useContext(AuthContext);
+    const { currentUser } = useContext(AuthContext);
+
     
-    const [showStories, setShowStories] = useState(false);
     const stories = [
         {
             id: 1,
@@ -32,27 +34,38 @@ export const Stories = () => {
             name: "Terry P. Baldwin",
             img: "https://images.pexels.com/photos/2523851/pexels-photo-2523851.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
         },
-       
-       
+
+
     ]
-  return (
-   <div className="stories" >
-   <div className="arrowBack"><ArrowBackIosNewOutlinedIcon/></div>
-   <div className="arrowForward"><ArrowForwardIosOutlinedIcon/></div>
-     <div className="story">
-            <img src={currentUser.profilePic} alt="" />
-            <span>{currentUser.name}</span>
-            <button>+</button>
-        </div>
-    {stories.map(story =>(
-        <div className="story" key={story.id}>
-            <img src={story.img} alt=""  onClick={() => setShowStories(!showStories)}/>
-            <span>{story.name}</span>
-        </div>
-    ))}
     console.log(showStories)
-   </div>
-  )
+    return (
+        <div className="wrappi">
+            <div className="stories" >
+                <div className="arrowBack"><ArrowBackIosNewOutlinedIcon /></div>
+                <div className="arrowForward"><ArrowForwardIosOutlinedIcon /></div>
+                <div className="story">
+                    <img src={currentUser.profilePic} alt="" />
+                    <span>{currentUser.name}</span>
+                    <button>+</button>
+                </div>
+                {stories.map(story => (
+                    <div className="storys" key={story.id}>
+                        
+                        <img src={story.img} alt="" onClick={showHide} />
+                        <span>{story.name}</span>
+                        <Showstories story={story} key={story.id} />
+                    </div>
+                    
+                   
+                    
+                ))}
+
+            </div>
+            
+        </div>
+
+    )
+
 }
 
 export default Stories;

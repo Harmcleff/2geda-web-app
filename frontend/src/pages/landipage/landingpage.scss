@@ -17,6 +17,20 @@
         color: white;
 
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            .icon {
+                background-color: #3c0464;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+            }
 
             span {
                 font-size: 25pt;
@@ -522,19 +536,18 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            
-            .txxt{
-               
-            }
-            
-            p{
+
+            .txxt {}
+
+            p {
                 color: white;
                 cursor: pointer;
-                
-                &:hover{
+
+                &:hover {
                     color: #e45cff;
                 }
             }
+
             span {
                 font-size: 25pt;
                 font-weight: 600;
