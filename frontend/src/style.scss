@@ -32,11 +32,21 @@
             }
         }
 
-        .centerback {
-
+        .centerbar {
+            
 
             .search {
-                background: whitesmoke;
+                background-color: #333;
+                
+                
+                
+                input{
+                    
+                    &::placeholder{
+                        color: whitesmoke;
+                    }
+                }
+                
             }
         }
 
@@ -129,6 +139,31 @@
         }
 
         .comments {
+            .write {
+
+
+
+                .input {
+
+                    background: #444;
+
+
+
+                    button {
+                        color: #2c0148
+                    }
+
+                }
+
+                input {
+
+
+                    &::placeholder {
+                        color: whitesmoke;
+                    }
+                }
+
+            }
 
             .comment {
 
@@ -139,12 +174,126 @@
                     }
                 }
             }
+
+            .date {
+                color: whitesmoke;
+            }
+        }
+    }
+
+    .profile {
+
+        .images {
+
+            .profilePic {
+                border: 10px solid #222;
+            }
+        }
+
+
+        .profileContainer {
+
+            .userInfo {
+                background: #222;
+
+                .left {
+                    .item {
+
+                        a {
+                            color: whitesmoke;
+                        }
+                    }
+                }
+
+                .center {
+
+
+                    span {
+                        color: white;
+                    }
+
+                    .info {
+
+                        span {
+                            color: whitesmoke;
+                        }
+                    }
+                }
+
+                .right {
+                    color: whitesmoke;
+                }
+            }
+        }
+
+        .profPost {
+
+
+            .post {
+                background: #222;
+                color: whitesmoke;
+
+                .content {
+                    color: whitesmoke;
+                }
+
+                .info {
+
+                    .item {
+                        color: whitesmoke;
+                    }
+                }
+            }
+
+            .comments {
+                .write {
+
+
+
+                    .input {
+
+                        background: #444;
+
+
+
+                        button {
+                            color: #2c0148
+                        }
+
+                    }
+
+                    input {
+
+
+                        &::placeholder {
+                            color: whitesmoke;
+                        }
+                    }
+
+                }
+
+                .comment {
+
+                    .info {
+
+                        .bg {
+                            background: #444;
+                        }
+                    }
+                }
+
+                .date {
+                    color: whitesmoke;
+                }
+            }
         }
     }
 
 
+}
 
-
-
-
+@mixin mobile {
+    @media (max-width: 480px) {
+        @content;
+    }
 }

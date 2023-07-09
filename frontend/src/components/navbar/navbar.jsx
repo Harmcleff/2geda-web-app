@@ -11,7 +11,7 @@ import { useContext } from 'react';
 import { DarkModeContext } from "../../context/darkModeContext";
 import LightModeRoundedIcon from '@mui/icons-material/LightModeRounded';
 import { AuthContext } from "../../context/authContext"; 
-
+import '../../style.scss'
 
 const navbar = () => {
   
@@ -31,7 +31,7 @@ const navbar = () => {
       </div>
       <div className="centerbar">
         <div className="search">
-          <SearchRoundedIcon />
+        <SearchRoundedIcon />
           <input type="text" placeholder='Search 2geda' />
         </div>
 

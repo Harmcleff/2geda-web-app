@@ -7,7 +7,10 @@ import PlaceIcon from '@mui/icons-material/Place';
 import LanguageIcon from '@mui/icons-material/Language';
 import EmailIcon from '@mui/icons-material/Email';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFolderPlus } from '@fortawesome/free-solid-svg-icons';
 import "./profile.scss"
+import { Posts } from "../../components/posts/Posts";
 
 const profile = () => {
   return (
@@ -44,21 +47,26 @@ const profile = () => {
             <span>Jamal san</span>
             <div className="info">
               <div className="item">
-                <PlaceIcon fontSize='small' />
-                <span>Nigeria</span>
+                <span>20.5K Followers</span>
               </div>
               <div className="item">
-                <LanguageIcon fontSize='small' />
-                <span>cleff.dev</span>
+                <span>•</span>
               </div>
-              <button>Follow</button>
+              <div className="item">
+                <span>     20 Posts</span>
+              </div>
+
             </div>
+            <button><FontAwesomeIcon icon={faFolderPlus} />Follow</button>
           </div>
           <div className="right">
-            <EmailIcon/>
-            <MoreVertIcon/>
+            <EmailIcon />
+            <MoreVertIcon />
           </div>
         </div>
+      </div>
+      <div className="profPost">
+      <Posts/>
       </div>
     </div>
   )

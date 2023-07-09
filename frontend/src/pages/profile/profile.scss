@@ -22,34 +22,60 @@
             right: 0;
             margin: auto;
             top: 200px;
+            border: 10px solid white;
+
 
         }
 
     }
 
     .profileContainer {
-        padding: 30px 120px;
+        padding: 0px 120px;
 
         .userInfo {
             height: 150px;
-            border-radius: 20px;
+            border-radius: 10px;
             padding: 50px;
             background: white;
-
+            margin-bottom: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-top: 60px;
+
+
+            button {
+                border: none;
+                background: purple;
+                padding: 12px 18px;
+                color: white;
+                font-family: inherit;
+                border-radius: 9px;
+                font-weight: 500;
+                font-size: 14px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                justify-content: center;
+
+            }
 
             .left {
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 flex: 1;
-                gap: 20px;
+                gap: 1px;
                 color: gray;
-                
-                a{
-                    text-decoration: none;
+
+
+                .item {
+                    color: gray;
+                }
+
+                a {
+                    color: #555;
                 }
             }
 
@@ -57,7 +83,31 @@
                 display: flex;
                 align-items: center;
                 flex-direction: column;
-                flex: 1;
+                flex: 3;
+                gap: 10px;
+
+                span {
+                    font-weight: bold;
+                    font-size: 30px;
+                }
+
+                .info {
+                    width: 60%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 10px;
+
+                    .item {
+                        color: rgb(69, 66, 66);
+                    }
+
+
+                    span {
+                        font-size: 15px;
+                        font-weight: 550;
+                    }
+                }
             }
 
             .right {
@@ -65,9 +115,16 @@
                 align-items: center;
                 justify-content: flex-end;
                 flex: 1;
+                gap: 10px;
+
+                color: #555;
             }
         }
 
+    }
+
+    .profPost {
+        padding: 0px 120px;
     }
 
 
