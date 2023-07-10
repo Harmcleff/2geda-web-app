@@ -1,3 +1,4 @@
+@import "../../style.scss";
 body {
     font-family: "poppins";
 
@@ -23,6 +24,10 @@ body {
                 font-weight: 600;
                 color: #4b0082;
                 cursor: pointer;
+                
+                @include tablet {
+                   margin-left: 10px;
+                }
             }
         }
 
@@ -46,6 +51,19 @@ body {
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
             border-radius: 8px;
             background-image: url('../../assets/bgg.png');
+            
+            @include mobile {
+                width: 390px;
+                height: 700px;
+                overflow-y: hidden;
+                overflow-x: hidden;
+            }
+            
+            @include tablet {
+                width: 810px;
+                gap: 20px;
+                
+            }
 
             a {
                 text-decoration: none;
@@ -127,6 +145,11 @@ body {
                 width: 55%;
                 display: flex;
                 background-color: rgba(159, 19, 19, 0.726);
+                
+                @include mobile {
+                    width: 40%;
+                    
+                }
 
                 .aside-bg {
                     background-image: url('../../assets/bg2.jpg');

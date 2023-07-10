@@ -15,8 +15,59 @@
     max-width: 800px;
     overflow-x: scroll;
     overflow-y: hidden;
-    cursor: grab;
+    justify-content: center;
+    scroll-behavior: smooth;
 
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    button {
+        border: none;
+        background: transparent;
+    }
+
+
+    .arrowBack {
+        position: sticky;
+
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 100;
+        left: 20px;
+        color: white;
+        font-size: 40px;
+        top: 100px;
+        cursor: pointer;
+        z-index: 1;
+
+        @include mobile {
+            display: none;
+        }
+    }
+
+    .arrowForward {
+
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: sticky;
+        left: 770px;
+        color: white;
+        font-size: 40px;
+        left: 750px;
+        top: 100px;
+        z-index: 100;
+        cursor: pointer;
+        z-index: 1;
+
+        @include mobile {
+            display: none;
+        }
+    }
 
     @include mobile {
         height: 150px;
@@ -36,56 +87,26 @@
         display: flex;
         gap: 5px;
         height: 250px;
-        width: 900px;
-        
+        max-width: 900px;
+
         @include mobile {
 
             overflow-x: scroll;
             overflow-y: hidden;
             height: 150px;
-        }
+            margin-left: 15px;
+            margin-right: 10px;
+            max-width: 400px;
 
-
-
-        .arrowBack {
-            position: fixed;
-            background: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            left: 0px;
-            top: 120px;
-            z-index: 100;
-            cursor: pointer;
-            z-index: 1;
-
-            @include mobile {
+            &::-webkit-scrollbar {
                 display: none;
             }
         }
 
-        .arrowForward {
-            background: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: absolute;
-            right: 20px;
-            top: 120px;
-            z-index: 100;
-            cursor: pointer;
-            z-index: 1;
 
-            @include mobile {
-                display: none;
-            }
-        }
+
+
+
 
         .story {
             //flex: 1;
@@ -93,6 +114,8 @@
             overflow: hidden;
             position: relative;
             background: black;
+            width: 250px;
+
 
 
             @include mobile {

@@ -1,14 +1,30 @@
+@import "../../style.scss";
+
 .profile {
+    @include mobile {
+        padding: 10px;
+
+    }
 
     .images {
         width: 100%;
         height: 300px;
         position: relative;
 
+        @include mobile {
+            width: 520px;
+
+        }
+
         .cover {
             width: 100%;
             height: 100%;
             object-fit: cover;
+
+            @include mobile {
+                width: 100%;
+
+            }
 
         }
 
@@ -32,6 +48,13 @@
     .profileContainer {
         padding: 0px 120px;
 
+        @include mobile {
+            adding: 0px 120px;
+
+            
+
+        }
+
         .userInfo {
             height: 150px;
             border-radius: 10px;
@@ -42,6 +65,16 @@
             justify-content: space-between;
             align-items: center;
             margin-top: 60px;
+
+
+            @include mobile {
+                flex-direction: column;
+                height: 250px;
+                margin-top: 30px;
+
+                padding: 30px;
+
+            }
 
 
             button {
@@ -98,6 +131,11 @@
                     justify-content: center;
                     gap: 10px;
 
+                    @include mobile {
+                        width: 100%;
+
+                    }
+
                     .item {
                         color: rgb(69, 66, 66);
                     }
@@ -125,6 +163,17 @@
 
     .profPost {
         padding: 0px 120px;
+        
+        
+        @include mobile {
+            padding: 0px 10px;
+
+        }
+        
+        @include tablet {
+            padding: 0px 10px;
+
+        }
     }
 
 

@@ -5,6 +5,12 @@ body {
     padding: 0;
     overflow-x: hidden;
     
+    @include mobile {
+        width: 380px;
+        margin-right: 10px;
+
+    }
+    
 
     
         
@@ -26,7 +32,9 @@ body {
             @include mobile {
                 display: none;
             }
-        
+            @include tablet {
+                display: none;
+            }
             
 
             .container {

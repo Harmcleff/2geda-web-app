@@ -18,6 +18,7 @@
     @include mobile {
         gap: 10px;
         justify-content: center; 
+        margin-right: 10px;
 
 
     }
@@ -94,6 +95,10 @@
                 @include mobile {
                     display: none;
                 }
+                @include tablet {
+                    width: 200px;;
+                }
+                
             }
 
             input:focus {

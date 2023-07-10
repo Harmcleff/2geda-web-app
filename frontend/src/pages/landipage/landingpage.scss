@@ -1,3 +1,5 @@
+@import "../../style.scss";
+
 .land {
     a {
         text-decoration: none;
@@ -16,10 +18,16 @@
         align-items: center;
         color: white;
 
+        @include mobile {
+            padding-left: 10px;
+        }
+
         .logo {
             display: flex;
             align-items: center;
             gap: 10px;
+
+
 
             .icon {
                 background-color: #3c0464;
@@ -37,6 +45,10 @@
                 font-weight: 600;
                 color: white;
                 cursor: pointer;
+
+                @include mobile {
+                    font-size: 24px;
+                }
             }
 
             a {
@@ -71,6 +83,10 @@
                 position: relative;
                 padding-right: 20px;
 
+                @include mobile {
+                    display: none;
+                }
+
                 &:hover {
                     background: #d8bfd8b6;
                 }
@@ -90,6 +106,10 @@
                 color: white;
                 padding: 5px 30px;
 
+                @include mobile {
+                    display: none;
+                }
+
 
                 &:hover {
                     border: 2px solid #d8bfd881;
@@ -106,10 +126,18 @@
         background-image: url('../../assets/bgg.png');
         z-index: 999999;
 
+        @include mobile {
+            padding-top: 10px;
+            margin-bottom: 0px;
+        }
 
         .inn {
             margin-left: 300px;
             margin-top: 10px;
+
+            @include mobile {
+                margin: 0px;
+            }
 
 
 
@@ -129,16 +157,34 @@
                     border-radius: 30px;
                     gap: 5px;
 
+                    @include mobile {
+                        left: 0;
+                        top: 90px;
+                        padding: 10px;
+                        border-radius: 0px;
+                        background: rgba(255, 255, 255, 0.614);
+                    }
+
                     h1 {
                         font-size: 70px;
                         line-height: 80px;
                         margin: 0;
                         color: rgb(38, 36, 36);
+
+                        @include mobile {
+                            font-size: 30px;
+                            line-height: 35px;
+                        }
                     }
 
                     p {
                         color: #484343;
-                        ;
+
+                        @include mobile {
+                            font-size: 11px;
+                            color: #000000;
+                        }
+
                     }
 
                     .btn {
@@ -163,6 +209,23 @@
                             position: relative;
                             background: #4B0082;
                             color: whitesmoke;
+
+                            @include mobile {
+
+
+                                height: 45px;
+                                width: 80px;
+                                color: #15171a;
+                                font-family: inherit;
+                                font-weight: 500;
+                                border-radius: 16px;
+                                font-size: 12px;
+                                cursor: pointer;
+                                padding-right: 20px;
+                                position: relative;
+                                background: #4B0082;
+                                color: whitesmoke;
+                            }
 
                             &:hover {
                                 border: none;
@@ -215,13 +278,20 @@
                 .item {
                     position: relative;
                     width: 900px;
-                    height: 600px;
+
                     margin-left: auto;
 
                     img {
                         width: 900px;
                         height: 600px;
                         border-radius: 5px;
+
+                        @include mobile {
+                            width: 355px;
+                            height: auto;
+                            border-radius: 0px;
+
+                        }
 
                     }
                 }

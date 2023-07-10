@@ -33,20 +33,20 @@
         }
 
         .centerbar {
-            
+
 
             .search {
                 background-color: #333;
-                
-                
-                
-                input{
-                    
-                    &::placeholder{
+
+
+
+                input {
+
+                    &::placeholder {
                         color: whitesmoke;
                     }
                 }
-                
+
             }
         }
 
@@ -111,15 +111,9 @@
 
             background: #222;
 
-            .arrowBack {
-                background: #222;
-                color: whitesmoke;
-            }
+            .arrowBack {}
 
-            .arrowForward {
-                background: #222;
-                color: whitesmoke;
-            }
+            .arrowForward {}
         }
 
         .post {
@@ -287,13 +281,49 @@
                 }
             }
         }
+
+
     }
 
+    .share {
+        background: #222;
+        
+        .container{
+            .top{
+                
+                input{
+                    background: #444;
+                    color: white;
+                }
+                
+               
+            }
+            hr{
+                background-color: #444;
+            }
+            
+            .bottom{
+                
+                .item{
+                    
+                    span{
+                        color: whitesmoke;
+                    }
+                }
+            }
+        }
+    }
 
 }
 
 @mixin mobile {
     @media (max-width: 480px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (max-width: 960px) {
         @content;
     }
 }
