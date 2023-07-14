@@ -1,50 +1,73 @@
 import { AuthContext } from "../../context/authContext"
 import "./Comments.scss"
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+import { makeRequest } from '../../axios'
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
+import moment from "moment"
 
+export const Comments = ({ postId }) => {
+    
+    const [desc, setDesc] = useState("")
+    const { currentUser } = useContext(AuthContext)
 
-export const Comments = () => {
-    const {currentUser} = useContext(AuthContext)
-    const comments = [
-        {
-            id: 1,
-            desc: "Nice picture!",
-            name: "San Jamal",
-            userId: 1,
-            profilePic: "https://images.pexels.com/photos/2218786/pexels-photo-2218786.jpeg?auto=compress&cs=tinysrgb&w=1600"
+    const { isLoading, error, data } = useQuery(['comments'], () =>
+
+        makeRequest.get("/comments?postId=" + postId).then(res => {
+            return res.data;
+
+        })
+
+    )
+
+    const queryClient = useQueryClient()
+
+    const mutation = useMutation(
+        (newComment) => {
+            return makeRequest.post("/comments", newComment);
         },
         {
-            id: 2,
-            desc: "Can i have your phone number!",
-            name: "Idan pablo",
-            userId: 2,
-            profilePic: "https://images.pexels.com/photos/2743754/pexels-photo-2743754.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            onSuccess: () => {
+                // Invalidate and refetch
+                queryClient.invalidateQueries(['comments'])
+            },
         }
-    ]
+    )
+
+    const handleClick = async (e) => {
+        e.preventDefault()
+
+
+        mutation.mutate({ desc, postId })
+        setDesc('')
+
+    }
+
     return (
         <div className="comments">
             <div className="write">
                 <img src={currentUser.profilePic} alt="" />
                 <div htmlFor="com" html className="input">
-                <input type="text" id="com" placeholder="Write a comment" />
-                <button><FontAwesomeIcon icon={faPaperPlane} /></button>
+                    <input type="text" id="com" placeholder="Write a comment" value={desc} onChange={(e) => setDesc(e.target.value)}/>
+                    <button onClick={handleClick}><FontAwesomeIcon icon={faPaperPlane} /></button>
                 </div>
             </div>
-            {comments.map(comment => (
-                <div className="comment">
-                    <img src={comment.profilePic} alt={comment.name} />
-                    <div className="info">
-                        <div className="bg">
-                            <span>{comment.name}</span>
-                            <p>{comment.desc}</p>
+            {isLoading
+                ? "Loading"
+                : data.map(comment => (
+                    <div className="comment">
+                        <img src={comment.profilePic} alt={comment.name} />
+                        <div className="info">
+                            <div className="bg">
+                                <span>{comment.name}</span>
+                                <p>{comment.desc}</p>
+                            </div>
                         </div>
-                    </div>
-                    <span className="date">1 hour ago</span>
+                        <span className="date">{moment(comment.createdAt).fromNow()}</span>
 
-                </div>
-            ))}
+                    </div>
+                ))}
 
         </div>
     )

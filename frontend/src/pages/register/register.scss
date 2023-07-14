@@ -10,6 +10,16 @@ body {
         justify-content: center;
         align-items: center;
         
+        @include mobile {
+            display: block;
+            margin-top: 50px;
+            
+           
+            &::-webkit-scrollbar{
+                display: none;
+            }
+        }
+        
         .curv{
             display: flex;
             flex-direction: column;
@@ -53,7 +63,7 @@ body {
             background-image: url('../../assets/bgg.png');
             
             @include mobile {
-                width: 390px;
+                width: 411px;
                 height: 700px;
                 overflow-y: hidden;
                 overflow-x: hidden;

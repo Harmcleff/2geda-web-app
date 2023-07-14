@@ -46,15 +46,53 @@
 
         .postImg {
             margin-top: 20px;
-            width: 500px;
             height: auto;
             margin-left: auto;
             margin-right: auto;
+            width: 500px;
+            position: relative;
+           
+            @include mobile {
+                width: 300px;
+
+            }
+            
+            span{
+                cursor: pointer;
+                position: absolute;
+                top: -10px;
+                left: 520px;
+                font-size: 25px;
+                color: #5f646c;
+                &:hover{
+                    padding: 5px;
+                    padding-left: 10px;
+                    padding-right: 10px;
+                    text-align: center;
+                    background: rgba(128, 128, 128, 0.116);
+                   
+                    
+                    
+                }
+                
+                @include mobile {
+                   left: 320px;
+                   font-size: 20px;
+                   top: -10px;
+    
+                }
+    
+                }
+                
 
             img {
-                width: 500px;
+                width:500px;
                 height: auto;
                 
+                @include mobile {
+                    width: 300px;
+    
+                }
             }
         }
 

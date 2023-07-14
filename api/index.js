@@ -5,6 +5,7 @@ import userRoutes from "./routes/users.js"
 import commentRoutes from "./routes/comments.js"
 import postRoutes from "./routes/posts.js"
 import likeRoutes from "./routes/likes.js"
+import relationshipRoutes from "./routes/relationships.js"
 import cookieParser from "cookie-parser";
 import cors from "cors"
 import multer from "multer";
@@ -42,6 +43,7 @@ app.use("/api/v1/users", userRoutes)
 app.use("/api/v1/comments", commentRoutes)
 app.use("/api/v1/posts", postRoutes)
 app.use("/api/v1/likes", likeRoutes)
+app.use("/api/v1/relationships", relationshipRoutes)
 
 
 

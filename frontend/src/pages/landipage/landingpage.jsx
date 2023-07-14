@@ -166,7 +166,7 @@ const landingpage = () => {
                         </div>
                     </div>
                     <div className="contain">
-                        <p>I'm currently studying software engineering at ALX, I have always been curious about how data are been processed in a social network app especially Facebook, so when I was given the opportunity to pick my project, that was what came to my mind first.<br />
+                        <p>Hello, my name is Sanyaolu Hammed, and I am a passionate software engineering student., I have always been curious about how data are been processed in a social network app especially Facebook, so when I was given the opportunity to pick my project, that was what came to my mind first.<br />
                             Facebook is a popular social media platform founded by Mark Zuckerberg. It allows users to create profiles, connect with friends and family, share photos and videos, and communicate through messages and comments. Facebook has grown into one of the largest social networking platforms in the world, with billions of active users.
 
                         </p>

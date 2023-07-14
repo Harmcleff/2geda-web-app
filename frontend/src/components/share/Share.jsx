@@ -3,6 +3,7 @@ import "./share.scss"
 import { AuthContext } from "../../context/authContext";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import Photo from "../../assets/icons/addphoto.png";
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { makeRequest } from '../../axios';
@@ -48,7 +49,13 @@ export const Share = () => {
     if(file) imgUrl = await upload();
 
     mutation.mutate({ desc, img: imgUrl })
+    setDesc('')
+    setFile(null)
 
+  }
+  
+  const handleClose = () => {
+    return setFile('')
   }
   return (
     <div className="share">
@@ -60,12 +67,14 @@ export const Share = () => {
             alt=""
           />
           <div className="bg"></div>
-          <input type="text" placeholder={`What's on your mind ${currentUser.name}?`} onChange={(e) => setDesc(e.target.value)} />
+          <input type="text" placeholder={`What's on your mind ${currentUser.name}?`} onChange={(e) => setDesc(e.target.value)} value={desc}/>
           
           
         </div>
         <div className="postImg">
             {file && <img className='fileImg' alt='' src={URL.createObjectURL(file)}/>}
+            
+            {file && <span onClick={handleClose} ><FontAwesomeIcon icon={faXmark} /></span>}
           </div>
           
         <hr />
