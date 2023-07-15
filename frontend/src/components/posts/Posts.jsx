@@ -15,6 +15,8 @@ export const Posts = ({ userId }) => {
     })
 
   )
+  
+  console.log(userId)
 
   return (
     <div className='posts'>

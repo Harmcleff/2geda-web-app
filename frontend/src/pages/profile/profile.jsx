@@ -14,11 +14,13 @@ import { Posts } from "../../components/posts/Posts";
 import { makeRequest } from '../../axios'
 import { useQuery, useQueryClient, useMutation } from '@tanstack/react-query'
 import { AuthContext } from '../../context/authContext';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
+import  Update  from '../../components/update/Update';
 
 
 
 const profile = () => {
+  const [openUpdate, setOpenUpdate] = useState(false)
   const { currentUser } = useContext(AuthContext)
 
   const userId = parseInt(useLocation().pathname.split("/")[2])
@@ -58,8 +60,8 @@ const profile = () => {
   return (
     <div className="profile">
       <div className="images">
-        <img src={data?.coverPic} alt="" className="cover" />
-        <img src={data?.profilePic} alt="" className="profilePic" />
+        <img src={"/upload/" + data?.coverPic} alt="" className="cover" />
+        <img src={"/upload/" + data?.profilePic} alt="" className="profilePic" />
       </div>
       <div className="profileContainer">
         <div className="userInfo">
@@ -100,7 +102,7 @@ const profile = () => {
 
             </div>
             {userId === currentUser.id
-              ? (<button>Edit profile</button>)
+              ? (<button onClick={()=>{setOpenUpdate(true)}} >Edit profile</button>)
               : <button onClick={handleFollow}>{relationshipData?.includes(currentUser.id) ? "Following" :  "Follow"}</button>}
           </div>
           <div className="right">
@@ -112,6 +114,7 @@ const profile = () => {
       <div className="profPost">
         <Posts userId={userId}/>
       </div>
+      {openUpdate && <Update setOpenUpdate={setOpenUpdate} user={data}/>}
     </div>
   )
 }

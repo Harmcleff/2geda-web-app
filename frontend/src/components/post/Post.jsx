@@ -18,6 +18,7 @@ import { Link } from 'react-router-dom';
 
 const Post = ({ post }) => {
     const [commentOpen, setCommentOpen] = useState(false);
+    const [menuOpen, setMenuOpen] = useState(false);
     const { currentUser } = useContext(AuthContext)
 
     const { isLoading, error, data } = useQuery(["likes", post.id], () =>
@@ -45,13 +46,30 @@ const Post = ({ post }) => {
     const handleLike = () => {
         mutation.mutate(data.includes(currentUser.id))
     }
-
+    
+    const deleteMutation = useMutation(
+        (postId) => {
+           
+            return makeRequest.delete("/posts/" + post.id );
+        },
+        {
+            onSuccess: () => {
+                // Invalidate and refetch
+                queryClient.invalidateQueries(['posts'])
+            },
+        }
+    )
+    
+    const handleDelete = () =>{
+        deleteMutation.mutate(post.id)
+    }
+    console.log(post)
     return (
         <div className="post">
             <div className="container">
                 <div className="user">
                     <div className="userInfo">
-                        <img src={post.profilePic} alt="" />
+                        <img src={"/upload/" + post.profilePic} alt="" />
                         <div className="details">
                             <Link to={`/profile/${post.userId}`} style={{ textDecoration: "none", color: 'inherit' }}>
                                 <span className='name'>{post.name}</span>
@@ -60,7 +78,9 @@ const Post = ({ post }) => {
                             <span className='date'>{moment(post.createdAt).fromNow()}</span>
                         </div>
                     </div>
-                    <MoreHorizRoundedIcon />
+                    <MoreHorizRoundedIcon onClick={()=>setMenuOpen(!menuOpen)} />
+                    {menuOpen && post.userId === currentUser.id && <button onClick={handleDelete}>Delete</button>}
+                   
                 </div>
                 <div className="content">
                     <p>{post.desc}</p>

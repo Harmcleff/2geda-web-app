@@ -1,6 +1,7 @@
 @import "../../style.scss";
 
 .stories {
+    
     display: flex;
     gap: 10px;
     height: 250px;
@@ -70,8 +71,9 @@
     }
 
     @include mobile {
+        margin-top: 70px;
         height: 150px;
-        max-width: 400px;
+        max-width: 900px;
         border-radius: 0px;
         background: none;
         border-bottom: none;
