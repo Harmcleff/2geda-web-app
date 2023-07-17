@@ -41,21 +41,21 @@ const leftbar = () => {
             <span >{data?.name}</span>
             </Link>
           </div>
-          <div className="item">
+          {/* <div className="item">
             <img src={Friends} alt="" />
             <span>Friends</span>
-          </div>
+          </div> */}
          
         </div>
         <hr />
         <div className="menu">
           
           
-          <div className="item">
+          {/* <div className="item">
             <img src={Gallary} alt="" />
             <span>Gallary</span>
           </div>
-          
+           */}
           
 
 

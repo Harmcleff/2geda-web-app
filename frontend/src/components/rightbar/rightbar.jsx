@@ -5,7 +5,7 @@ const rightbar = () => {
   return (
     <div className="Rightbar">
       <div className="container">
-        <div className="item">
+        {/* <div className="item">
           <span className="hline">Suggestion For You</span>
           <div className="user">
             <div className="userInfo">
@@ -31,9 +31,9 @@ const rightbar = () => {
             </div>
 
           </div>
-        </div>
+        </div> */}
         <hr />
-        <div className="item">
+        {/* <div className="item">
           <span className="hline">Online Friends</span>
           <div className="user">
             <div className="userInfo">
@@ -157,7 +157,7 @@ const rightbar = () => {
           </div>
           
           
-        </div>
+        </div> */}
 
       </div>
 

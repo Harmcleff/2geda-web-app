@@ -8,6 +8,8 @@ import Photo from "../../assets/icons/addphoto.png";
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { makeRequest } from '../../axios';
 import { useQuery } from '@tanstack/react-query'
+import { Link } from 'react-router-dom';
+
 
 export const Share = () => {
 
@@ -64,17 +66,22 @@ export const Share = () => {
     })
 
   )
+  console.log(file?.type === "un")
   return (
     <div className="share">
       <div className="container">
         <div className="top">
-       
+        <Link  to={`/profile/${data?.id}`}>
           <img
             src={"/upload/" + data?.profilePic}
             alt=""
           />
+          </Link>
           <div className="bg"></div>
-          <input type="text" placeholder={`What's on your mind ${currentUser.name}?`} onChange={(e) => setDesc(e.target.value)} value={desc}/>
+          <input type="text" placeholder={`What's on your mind ${currentUser.name}?`} 
+          onChange={(e) => setDesc(e.target.value)} value={desc}
+          
+          />
           
           
         </div>
@@ -98,7 +105,7 @@ export const Share = () => {
 
           </div>
           <div className="right">
-            <button onClick={handleClick} ><FontAwesomeIcon icon={faPaperPlane} />Share</button>
+            <button onClick={handleClick} disabled={ desc === '' ? true : false }><FontAwesomeIcon icon={faPaperPlane} />Share</button>
           </div>
         </div>
       </div>

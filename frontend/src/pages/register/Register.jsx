@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./register.scss";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const Register = () => {
   //const [mobile, setMobile] = useState("");
   const [err, setErr] = useState(null)
@@ -16,7 +16,7 @@ const Register = () => {
   });
 
 
-
+  const navigate = useNavigate()
   const handleChange = (e) => {
     setinputs((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
@@ -26,6 +26,7 @@ const Register = () => {
 
     try {
       await axios.post("http://localhost:8800/api/v1/auth/register", inputs)
+      navigate('/login')
     } catch (err) {
       setErr(err.response.data)
     }
@@ -99,8 +100,8 @@ const Register = () => {
 
               />
               <br />
-
-              {err && err}
+              <div className="error">{err && err}</div>
+              
               <button className="btn" onClick={handleClick}>Sign up</button>
               <br />
               <br />

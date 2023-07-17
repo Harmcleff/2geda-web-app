@@ -5,7 +5,7 @@
         text-decoration: none;
     }
 
-    
+
     font-family: "poppins";
 
     .navBar {
@@ -73,11 +73,20 @@
             justify-content: center;
             align-items: center;
 
+
+
             .btn {
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 gap: 5px;
+            }
+
+            .logi {
+
+                background: none;
+
+
             }
 
             button {
@@ -93,6 +102,11 @@
                 cursor: pointer;
                 position: relative;
                 padding-right: 20px;
+                justify-content: center;
+                display: flex;
+                align-items: center;
+
+
 
                 @include mobile {
                     display: none;
@@ -252,6 +266,9 @@
                                 position: relative;
                                 background: #4B0082;
                                 color: whitesmoke;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
                             }
 
                             &:hover {

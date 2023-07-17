@@ -3,6 +3,7 @@ import "./Posts.scss"
 import Post from "../post/Post"
 import { makeRequest } from '../../axios'
 import { useQuery } from '@tanstack/react-query'
+import { post } from 'request'
 
 
 export const Posts = ({ userId }) => {
@@ -16,7 +17,7 @@ export const Posts = ({ userId }) => {
 
   )
   
-  console.log(userId)
+  console.log(data?.length === 0)
 
   return (
     <div className='posts'>
@@ -24,6 +25,8 @@ export const Posts = ({ userId }) => {
         ? "Something went wrong"
         : isLoading
           ? "Loading"
+          :data?.length === 0
+          ? <div className="empty">You don't have any post yet</div>
           : data.map(post => 
             <Post post={post} key={post.id} />
           )}

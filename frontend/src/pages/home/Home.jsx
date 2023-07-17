@@ -13,7 +13,7 @@ const Home = () => {
   console.log(showStories)
   return (
     <div className="home">
-      <Stories />
+     
       <Share/>
       {showStories && <Showstore />}
       <Posts />

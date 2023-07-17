@@ -24,18 +24,18 @@ function App() {
   const Layout = () => {
     return (
       <QueryClientProvider client={queryClient}>
-      <div className={darkMode ? "dark" : "light"} >
-        <Navbar />
-        <div className="fw" style={{ display: "flex", justifyContent: "center",  }}>
-          <Leftbar />
-          <div style={{ flex: 6 }}>
-            <Outlet />
+        <div className={darkMode ? "dark" : "light"} >
+          <Navbar />
+          <div className="fw" style={{ display: "flex", justifyContent: "center", }}>
+            <Leftbar />
+            <div style={{ flex: 6 }}>
+              <Outlet />
+            </div>
+
+            <Rightbar />
           </div>
 
-          <Rightbar />
         </div>
-
-      </div>
       </QueryClientProvider>
     )
   }
@@ -43,6 +43,14 @@ function App() {
   const ProtectedRoute = ({ children }) => {
     if (!currentUser) {
       return <Navigate to="/home" />
+    }
+
+    return children
+  }
+
+  const CheckLogin = ({ children }) => {
+    if (currentUser) {
+      return <Navigate to="/" />
     }
 
     return children
@@ -70,11 +78,17 @@ function App() {
     },
     {
       path: "/register",
-      element: <Register />,
+      element:
+        <CheckLogin>
+          <Register />
+        </CheckLogin>,
     },
     {
       path: "/login",
-      element: <Login />,
+      element:
+        <CheckLogin>
+          <Login />
+        </CheckLogin>,
     }, {
       path: "/home",
       element: <Landing />,

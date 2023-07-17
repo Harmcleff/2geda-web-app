@@ -17,12 +17,10 @@ import { AuthContext } from '../../context/authContext';
 import { useContext, useState } from 'react';
 import  Update  from '../../components/update/Update';
 import "../../components/update/Update.scss"
-
-
-
+import blank from "../../assets/img/prof.jpeg"
 const profile = () => {
   const [openUpdate, setOpenUpdate] = useState(false)
-  const { currentUser } = useContext(AuthContext)
+  const { currentUser, logout } = useContext(AuthContext)
 
   const userId = parseInt(useLocation().pathname.split("/")[2])
 
@@ -41,7 +39,7 @@ const profile = () => {
   );
   
   const { data: countPost } = useQuery(["count"], () =>
-    makeRequest.get("/posts/count/"  + userId).then(res => {comm
+    makeRequest.get("/posts/count/"  + userId).then(res => {
       return res.data;
     })
 
@@ -80,11 +78,11 @@ const profile = () => {
     document.body.classList.remove('active-modal')
   }
   
-  console.log(countrelationships?.length)
+  console.log(data?.coverPic === null)
   return (
     <div className="profile">
       <div className="images">
-        <img src={"/upload/" + data?.coverPic} alt="" className="cover" />
+        <img src={true ? (blank) :("/upload/" + data?.coverPic)} alt="" className="cover" />
         <img src={"/upload/" + data?.profilePic} alt="" className="profilePic" />
       </div>
       <div className="profileContainer">
@@ -123,7 +121,7 @@ const profile = () => {
               <div className="item">
                 <span>{countPost?.length} Posts</span>
               </div>
-
+               
             </div>
             {userId === currentUser.id
               ? (<button onClick={()=>{setOpenUpdate(true)}} >Edit profile</button>)

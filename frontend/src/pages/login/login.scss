@@ -26,6 +26,11 @@ body {
                 @include mobile {
                     padding: 0px 20px;
                 }
+                
+                .error{
+                    padding-top: 20px;
+                    color: firebrick;
+                }
 
 
                 label {
@@ -84,7 +89,7 @@ body {
                 }
 
                 .btn:hover {
-                    background-color: rgba(0, 0, 0, 0.744);
+                    background-color: #1a1919;
                 }
 
                 .btn-u {

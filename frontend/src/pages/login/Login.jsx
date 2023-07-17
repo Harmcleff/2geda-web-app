@@ -21,6 +21,7 @@ const Login = () => {
 
 
   const { login } = useContext(AuthContext);
+  const { currentUser } = useContext(AuthContext);
 
 
   const handleLogin = async (e) => {
@@ -66,12 +67,11 @@ const Login = () => {
 
               <input placeholder="Password" id="password" type="password" name="password" onChange={handleChange} />
               <br />
-              {err && err}
+              <div className="error">{err && err}</div>
+        
               <button className="btn" onClick={handleLogin}>Log in</button>
               <br />
-              <br />
-              <button className="btn-u">Forgot password?</button>
-              <br />
+             
 
               <br />
               <span>Don't you have an account? <Link to="/register" > Sign up</Link> </span>

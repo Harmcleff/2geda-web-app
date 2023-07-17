@@ -17,7 +17,7 @@
     margin-bottom: 3000px;
 
     @include mobile {
-        gap: 125px;
+        gap: 75px;
         justify-content: center; 
         margin-right: 10px;
         
@@ -125,6 +125,20 @@
         @include mobile {
             margin: 0;
         }
+        
+        .logout{
+            background: none;
+            border: none;
+            font-size: 16px;
+            font-weight: 500;
+            font-family: inherit;
+            cursor: pointer;
+            max-width: 400px;
+            
+            &:hover{
+                color: purple;
+            }
+        }
 
         .icon {
             background-color: #f0f2f5;
@@ -163,6 +177,11 @@
             align-items: center;
             gap: 5px;
             font-weight: 500;
+            
+            a{
+                align-self: center;
+                display: flex;
+            }
 
             img {
                 border: 1px solid purple;

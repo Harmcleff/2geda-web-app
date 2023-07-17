@@ -71,6 +71,7 @@ const Post = ({ post }) => {
 
     return (
         <div className="post">
+            
             <div className="container">
                 <div className="user">
                     <div className="userInfo">
@@ -98,12 +99,12 @@ const Post = ({ post }) => {
                     </div>
                     <div className="item" onClick={() => setCommentOpen(!commentOpen)}>
                         <FontAwesomeIcon icon={faComment} />
-                        1.2k Comments
+                        Comment
                     </div>
-                    <div className="item">
+                    {/* <div className="item">
                         <FontAwesomeIcon icon={faShare} />
                         Share
-                    </div>
+                    </div> */}
                 </div>
                 {commentOpen && <Comments postId={post.id} />}
             </div>

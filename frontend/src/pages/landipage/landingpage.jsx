@@ -21,7 +21,7 @@ const landingpage = () => {
                 </div>
                 <div className="detail">
                     <Link to="/login">
-                        <span>Log in</span>
+                        <button className="logi">Log in</button>
                     </Link>
                     <div className="btn">
                         <Link to="/register">

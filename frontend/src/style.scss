@@ -1,7 +1,11 @@
 .fw {
     display: flex;
     justify-content: center;
-    min-height: 1500px;
+    min-height: 1100px;
+    
+    @media (max-width: 480px) {
+        min-height: 60px;
+    }
 }
 
 .light {

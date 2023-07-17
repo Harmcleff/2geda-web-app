@@ -2965,6 +2965,11 @@
     "readable-stream" "^3.6.0"
     "xtend" "^4.0.2"
 
+"stream-lib@^0.1.0":
+  "integrity" "sha512-Tsp5giY2FLFzPGcKT9NZPUrPCSyzLZgpumPBoxA8UHTmPe8IiB7uS8CNoapixHzqSuojCnJiJvO5gO3fZ8zF7w=="
+  "resolved" "https://registry.npmjs.org/stream-lib/-/stream-lib-0.1.0.tgz"
+  "version" "0.1.0"
+
 "streamsearch@^1.1.0":
   "integrity" "sha512-Mcc5wHehp9aXz1ax6bZUyY5afg9u2rv5cqQI3mRrYkGC8rW2hM02jWuwjtL++LS5qinSyhj2QfLyNsuc+VsExg=="
   "resolved" "https://registry.npmjs.org/streamsearch/-/streamsearch-1.1.0.tgz"
@@ -3176,7 +3181,7 @@
   "resolved" "https://registry.npmjs.org/util-deprecate/-/util-deprecate-1.0.2.tgz"
   "version" "1.0.2"
 
-"util@^0.12.0", "util@^0.12.4", "util@^0.12.5":
+"util@^0.12.0", "util@^0.12.4":
   "integrity" "sha512-kZf/K6hEIrWHI6XqOFUiiMa+79wE/D8Q+NCNAWclkyg3b4d2k7s0QGepNjiABc+aR3N1PAyHL7p6UcLY6LmrnA=="
   "resolved" "https://registry.npmjs.org/util/-/util-0.12.5.tgz"
   "version" "0.12.5"
