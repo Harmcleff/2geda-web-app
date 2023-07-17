@@ -4,6 +4,8 @@ import App from './App.jsx'
 import { DarkModeContextProvider } from './context/DarkModecontext.jsx'
 import { AuthContextProvider } from './context/authContext.jsx'
 import { ShowStoriesContextProvider } from './context/showStoriesContext.jsx'
+import { Buffer } from 'buffer'
+globalThis.Buffer = Buffer
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

@@ -12,11 +12,21 @@ import { DarkModeContext } from "../../context/darkModeContext";
 import LightModeRoundedIcon from '@mui/icons-material/LightModeRounded';
 import { AuthContext } from "../../context/authContext"; 
 import '../../style.scss'
+import { makeRequest } from "../../axios";
+import { useQuery, useQueryClient, useMutation } from '@tanstack/react-query'
 
 const navbar = () => {
   
   const { darkMode, toggle } = useContext(DarkModeContext)
   const {currentUser} = useContext(AuthContext);
+  
+  const { isLoading, error, data } = useQuery(["NavUser"], () =>
+    makeRequest.get("/users/find/" + currentUser.id).then(res => {
+      return res.data;
+    })
+    
+  )
+  console.log(data)
   return (
     <div className="navbar">
       <div className="leftbar">
@@ -24,8 +34,8 @@ const navbar = () => {
           <span >2geda</span>
         </Link>
 
-        <div className="icon">{darkMode ? <LightModeRoundedIcon onClick={toggle} /> : <DarkModeRoundedIcon onClick={toggle} />}</div>
-        <div className="icon"><GridViewRoundedIcon /></div>
+        
+        
 
 
       </div>
@@ -37,11 +47,15 @@ const navbar = () => {
 
       </div>
       <div className="rightbar">
-        <div className="icon"><PersonRoundedIcon /></div>
-        <div className="icon"><MessageRoundedIcon /></div>
-        <div className="icon"><NotificationsRoundedIcon /></div>
+      <div className="icon">{darkMode ? <LightModeRoundedIcon onClick={toggle} /> : <DarkModeRoundedIcon onClick={toggle} />}</div>
+        <Link to={`/profile/${data?.id}`} style={{ textDecoration: "none", color: 'inherit' }}><div className="icon"><PersonRoundedIcon /></div></Link>
+        
+
         <div className="user">
-          <img src={currentUser.profilePic} alt=''/>
+        <div className="sear" style={{display: "none"}}>
+        <SearchRoundedIcon />
+        </div>
+          <img src={"/upload/"+ data?.profilePic} alt=''/>
             
         </div>
       </div>

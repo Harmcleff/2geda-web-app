@@ -8,11 +8,11 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import moment from "moment"
 
 export const Comments = ({ postId }) => {
-    
+
     const [desc, setDesc] = useState("")
     const { currentUser } = useContext(AuthContext)
 
-    const { isLoading, error, data } = useQuery(['comments'], () =>
+    const { isLoading, error, data } = useQuery(["comments",postId], () =>
 
         makeRequest.get("/comments?postId=" + postId).then(res => {
             return res.data;
@@ -31,6 +31,7 @@ export const Comments = ({ postId }) => {
             onSuccess: () => {
                 // Invalidate and refetch
                 queryClient.invalidateQueries(['comments'])
+                queryClient.invalidateQueries(['posts'])
             },
         }
     )
@@ -43,21 +44,27 @@ export const Comments = ({ postId }) => {
         setDesc('')
 
     }
+    
+   
+    
+    
+
+    
 
     return (
         <div className="comments">
             <div className="write">
-                <img src={currentUser.profilePic} alt="" />
+                <img src={"/upload/" +currentUser.profilePic} alt="" />
                 <div htmlFor="com" html className="input">
-                    <input type="text" id="com" placeholder="Write a comment" value={desc} onChange={(e) => setDesc(e.target.value)}/>
+                    <input type="text" id="com" placeholder="Write a comment" value={desc} onChange={(e) => setDesc(e.target.value)} />
                     <button onClick={handleClick}><FontAwesomeIcon icon={faPaperPlane} /></button>
                 </div>
             </div>
             {isLoading
                 ? "Loading"
                 : data.map(comment => (
-                    <div className="comment">
-                        <img src={comment.profilePic} alt={comment.name} />
+                    <div className="comment" >
+                        <img src={"/upload/" + comment.profilePic} alt={comment.name} />
                         <div className="info">
                             <div className="bg">
                                 <span>{comment.name}</span>

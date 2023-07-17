@@ -14,6 +14,7 @@ import { makeRequest } from '../../axios'
 import { useQuery, useQueryClient, useMutation } from '@tanstack/react-query'
 import { AuthContext } from '../../context/authContext';
 import { Link } from 'react-router-dom';
+import { countPosts } from '../../../../api/controllers/post';
 
 
 const Post = ({ post }) => {
@@ -27,6 +28,8 @@ const Post = ({ post }) => {
         })
 
     );
+    
+   
 
     const queryClient = useQueryClient()
 
@@ -63,7 +66,9 @@ const Post = ({ post }) => {
     const handleDelete = () =>{
         deleteMutation.mutate(post.id)
     }
-    console.log(post)
+    
+   
+
     return (
         <div className="post">
             <div className="container">

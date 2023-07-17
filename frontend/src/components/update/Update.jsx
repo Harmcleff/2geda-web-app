@@ -5,11 +5,12 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { AuthContext } from '../../context/authContext';
 import { useContext } from 'react';
 
-const update = ({ setOpenUpdate, user }) => {
+
+const update = ({ setOpenUpdate, user, openUpdate }) => {
     const { currentUser } = useContext(AuthContext)
     const [cover, setCover] = useState(null)
     const [profile, setProfile] = useState(null)
-    const [ texts, setTexts ] = useState({
+    const [texts, setTexts] = useState({
         name: user.name,
         instagram: user.instagram,
         facebook: user.facebook,
@@ -32,53 +33,79 @@ const update = ({ setOpenUpdate, user }) => {
 
     const handleChange = (e) => {
         setTexts((prev) => ({ ...prev, [e.target.name]: [e.target.value] }));
-        
-       
+
+
     }
 
-    const queryClient =  useQueryClient()
+    const queryClient = useQueryClient()
 
     const mutation = useMutation(
-      (user) => {
-        return makeRequest.put("/users", user);
-      },
-      {
-        onSuccess: () => {
-          // Invalidate and refetch
-          queryClient.invalidateQueries(['user'])
-          queryClient.invalidateQueries(['posts'])
+        (user) => {
+            return makeRequest.put("/users", user);
         },
-      }
+        {
+            onSuccess: () => {
+                // Invalidate and refetch
+                queryClient.invalidateQueries(['user'])
+                queryClient.invalidateQueries(['posts'])
+                queryClient.invalidateQueries(['leftUser'])
+                queryClient.invalidateQueries(['NavUser'])
+            },
+        }
     )
-  
+
     const handleSubmit = async (e) => {
-      e.preventDefault()
-      let coverUrl;
-      let profileUrl;
-      
-      coverUrl = cover ? await upload(cover) : user.coverPic;
-      profileUrl = profile ? await upload(profile) : user.profilePic;
+        e.preventDefault()
+        let coverUrl;
+        let profileUrl;
+
+        coverUrl = cover ? await upload(cover) : user.coverPic;
+        profileUrl = profile ? await upload(profile) : user.profilePic;
 
 
-      mutation.mutate({ ...texts, coverPic: coverUrl, profilePic: profileUrl });
-      setOpenUpdate(false)
-     
-  
+        mutation.mutate({ ...texts, coverPic: coverUrl, profilePic: profileUrl });
+        setOpenUpdate(false)
+
+
     }
-    console.log(currentUser)
+    console.log(openUpdate)
+
+    const [modal, setModal] = useState(true);
+
+    const toggleModal = () => {
+        setOpenUpdate(!openUpdate)
+        setModal(!modal)
+    };
+
+
+
     return (
         <div className='update'>update
-            <form>
-                <input type="file" onChange={(e) => setCover(e.target.files[0])}/>
-                <input type="file" onChange={(e) => setProfile(e.target.files[0])}/>
-                <input type="text" name='name' onChange={handleChange} placeholder={user.name} />
-                <input type="text" name='instagram' onChange={handleChange} />
-                <input type="text" name='facebook' onChange={handleChange} />
-                <input type="text" name='twitter' onChange={handleChange} />
-                <input type="text" name='linkedin' onChange={handleChange} />
-                <button onClick={handleSubmit}>Update</button>
-            </form>
-            <button onClick={() => { setOpenUpdate(false) }}>X</button>
+            <div onClick={toggleModal} className="overlay"></div>
+            <div className="modal-content">
+                <form>
+                    <label htmlFor="cover">Cover Picture </label>
+                    <input type="file" name='cover' onChange={(e) => setCover(e.target.files[0])} /><br /><br />
+                    <label htmlFor="profilePic">Profile Picture </label>
+                    <input type="file" name='profilePic' onChange={(e) => setProfile(e.target.files[0])} /><br /><br />
+                    <label htmlFor="name">Name</label><br />
+                    <input type="text" name='name' onChange={handleChange} placeholder={user.name} /><br /><br />
+                    <label htmlFor="instagram">Instagram</label><br />
+                    <input type="text" name='instagram' onChange={handleChange} /><br /><br />
+                    <label htmlFor="facebook">Facebook</label><br />
+                    <input type="text" name='facebook' onChange={handleChange} /><br /><br />
+                    <label htmlFor="twitter">Twitter</label><br />
+                    <input type="text" name='twitter' onChange={handleChange} /><br /><br />
+                    <label htmlFor="linkedin">Linkedin</label><br />
+                    <input type="text" name='linkedin' onChange={handleChange} /><br /><br />
+
+                </form>
+                <div className="btn">
+                    <button onClick={toggleModal}>Cancel</button>
+                    <button onClick={handleSubmit}>Update</button>
+                </div>
+
+            </div>
         </div>
     )
 }

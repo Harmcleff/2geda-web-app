@@ -14,11 +14,13 @@
     top: 0;
     z-index: 999;
     width: 100%;
+    margin-bottom: 3000px;
 
     @include mobile {
-        gap: 20px;
+        gap: 125px;
         justify-content: center; 
         margin-right: 10px;
+        
     }
     
    
@@ -58,6 +60,13 @@
             font-size: 20pt;
             font-weight: 600;
             color: rgb(69, 2, 102);
+            margin-left: 30px;
+            
+            
+            @include mobile {
+                margin: 0;
+
+            }
         }
     }
 
@@ -78,6 +87,7 @@
                 background-color: transparent;
                 background-color: #f0f2f5;
                 padding: 12px;
+                display: none;
 
             }
 
@@ -111,6 +121,10 @@
         justify-content: center;
         gap: 20px;
         align-items: center;
+        margin-right: 20px;
+        @include mobile {
+            margin: 0;
+        }
 
         .icon {
             background-color: #f0f2f5;

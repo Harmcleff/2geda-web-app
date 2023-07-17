@@ -7,7 +7,7 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import Photo from "../../assets/icons/addphoto.png";
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { makeRequest } from '../../axios';
-
+import { useQuery } from '@tanstack/react-query'
 
 export const Share = () => {
 
@@ -57,13 +57,20 @@ export const Share = () => {
   const handleClose = () => {
     return setFile('')
   }
+  
+  const { isLoading, error, data } = useQuery(["shareUser"], () =>
+    makeRequest.get("/users/find/" + currentUser.id).then(res => {
+      return res.data;
+    })
+
+  )
   return (
     <div className="share">
       <div className="container">
         <div className="top">
        
           <img
-            src={currentUser.profilePic}
+            src={"/upload/" + data?.profilePic}
             alt=""
           />
           <div className="bg"></div>

@@ -22,10 +22,11 @@ export const addRelationship = (req, res) => {
     jwt.verify(token, "secretkey", (err, userInfo) => {
         if (err) return res.status(403).json("Token is not valid")
 
-        const q = "INSERT INTO relationships (`followerUserId`, `followedUserId`) VALUES (?)";
+        const q = "INSERT INTO relationships (`followerUserId`, `followedUserId`, `followingUserId`) VALUES (?)";
 
         const values = [
             userInfo.id,
+            req.body.userId,
             req.body.userId,
         ]
 
@@ -47,13 +48,36 @@ export const deleteRelationship = (req, res) => {
     jwt.verify(token, "secretkey", (err, userInfo) => {
         if (err) return res.status(403).json("Token is not valid")
 
-        const q = "DELETE FROM relationships WHERE `followerUserId` = ? AND `followedUserId` = ?";
+        const q = "DELETE FROM relationships WHERE `followerUserId` = ? AND `followedUserId` = ? AND `followingUserId` = ?" ;
 
 
 
-        db.query(q, [userInfo.id, req.query.userId], (err, data) => {
+        db.query(q, [userInfo.id, req.query.userId, req.query.userId], (err, data) => {
             if (err) return res.status(500).json(err);
             return res.status(200).json("Unfollow")
+        });
+
+
+    })
+
+
+}
+
+export const countRelationships = (req, res) => {
+    const userId = req.params.userId;
+    const token = req.cookies.accesstoken;
+    if (!token) return res.status(401).json("Not Logged in");
+
+    jwt.verify(token, "secretkey", (err, userInfo) => {
+        if (err) return res.status(403).json("Token is not valid")
+
+        const q = `SELECT followingUserId FROM social.relationships WHERE followingUserId = ?`
+
+
+        db.query(q, userId, (err, data) => {
+            if (err) return res.status(500).json(err);
+            return res.status(200).json(data)
+
         });
 
 

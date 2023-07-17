@@ -24,9 +24,9 @@ export const Posts = ({ userId }) => {
         ? "Something went wrong"
         : isLoading
           ? "Loading"
-          : data.map(post => (
+          : data.map(post => 
             <Post post={post} key={post.id} />
-          ))}
+          )}
     </div>
   )
 }

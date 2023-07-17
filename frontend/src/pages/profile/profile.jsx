@@ -16,6 +16,7 @@ import { useQuery, useQueryClient, useMutation } from '@tanstack/react-query'
 import { AuthContext } from '../../context/authContext';
 import { useContext, useState } from 'react';
 import  Update  from '../../components/update/Update';
+import "../../components/update/Update.scss"
 
 
 
@@ -38,6 +39,20 @@ const profile = () => {
     })
 
   );
+  
+  const { data: countPost } = useQuery(["count"], () =>
+    makeRequest.get("/posts/count/"  + userId).then(res => {comm
+      return res.data;
+    })
+
+  );
+  
+  const { data: countrelationships } = useQuery(["countrelationships"], () =>
+  makeRequest.get("/relationships/count/"  + userId).then(res => {
+    return res.data;
+  })
+
+);
 
   const queryClient = useQueryClient()
 
@@ -50,6 +65,7 @@ const profile = () => {
           onSuccess: () => {
               // Invalidate and refetch
               queryClient.invalidateQueries(['relationship'])
+              queryClient.invalidateQueries(['countrelationships'])
           },
       }
   )
@@ -57,6 +73,14 @@ const profile = () => {
   const handleFollow = () => {
     mutation.mutate(relationshipData.includes(currentUser.id))
   }
+  
+  if(openUpdate) {
+    document.body.classList.add('active-modal')
+  } else {
+    document.body.classList.remove('active-modal')
+  }
+  
+  console.log(countrelationships?.length)
   return (
     <div className="profile">
       <div className="images">
@@ -91,19 +115,19 @@ const profile = () => {
             <span>{data?.name}</span>
             <div className="info">
               <div className="item">
-                <span>20.5K Followers</span>
+                <span>{countrelationships?.length}{countrelationships?.length === 1000 ? "K Followers" : (countrelationships?.length <= 1 ? " Follower" : " Followers") }</span>
               </div>
               <div className="item">
                 <span>•</span>
               </div>
               <div className="item">
-                <span>     20 Posts</span>
+                <span>{countPost?.length} Posts</span>
               </div>
 
             </div>
             {userId === currentUser.id
               ? (<button onClick={()=>{setOpenUpdate(true)}} >Edit profile</button>)
-              : <button onClick={handleFollow}>{relationshipData?.includes(currentUser.id) ? "Following" :  "Follow"}</button>}
+              : <button onClick={handleFollow}>{relationshipData?.includes(currentUser.id) ? "Following" :  " Follow"}</button>}
           </div>
           <div className="right">
             <EmailIcon />
@@ -114,7 +138,7 @@ const profile = () => {
       <div className="profPost">
         <Posts userId={userId}/>
       </div>
-      {openUpdate && <Update setOpenUpdate={setOpenUpdate} user={data}/>}
+      {openUpdate && <Update setOpenUpdate={setOpenUpdate} user={data} openUpdate={openUpdate}/>}
     </div>
   )
 }

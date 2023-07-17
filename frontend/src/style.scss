@@ -1,6 +1,7 @@
 .fw {
     display: flex;
     justify-content: center;
+    min-height: 1500px;
 }
 
 .light {
@@ -287,33 +288,34 @@
 
     .share {
         background: #222;
-        
-        .container{
-            .top{
-                
-                input{
+
+        .container {
+            .top {
+
+                input {
                     background: #444;
                     color: white;
                 }
-                
-               
+
+
             }
-            
-            .postImg{
-                
-                span{
+
+            .postImg {
+
+                span {
                     color: whitesmoke;
                 }
             }
-            hr{
+
+            hr {
                 background-color: #444;
             }
-            
-            .bottom{
-                
-                .item{
-                    
-                    span{
+
+            .bottom {
+
+                .item {
+
+                    span {
                         color: whitesmoke;
                     }
                 }

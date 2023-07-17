@@ -14,73 +14,54 @@ import Watch from "../../assets/icons/watch.png";
 import Pages from "../../assets/icons/pages.png";
 import { useContext } from "react";
 import { AuthContext } from "../../context/authContext";
-
-
+import { useLocation } from "react-router-dom";
+import { makeRequest } from "../../axios";
+import { useQuery, useQueryClient, useMutation } from '@tanstack/react-query'
+import { Link } from "react-router-dom";
 const leftbar = () => {
-  const {currentUser} = useContext(AuthContext);
-  
-  console.log(currentUser)
+  const { currentUser } = useContext(AuthContext);
+
+
+  const { isLoading, error, data } = useQuery(["leftUser"], () =>
+    makeRequest.get("/users/find/" + currentUser.id).then(res => {
+      return res.data;
+    })
+
+  )
+
+
+  console.log(data)
   return (
     <div className="leftBar">
       <div className="container">
         <div className="menu">
           <div className="user">
-            <img src={"/upload/"+currentUser.profilePic} />
-            <span>{currentUser.name}</span>
+            <img src={"/upload/" + data?.profilePic} />
+            <Link to={`/profile/${currentUser.id}`} style={{ textDecoration: "none", color: 'inherit' }}>
+            <span >{data?.name}</span>
+            </Link>
           </div>
           <div className="item">
             <img src={Friends} alt="" />
             <span>Friends</span>
           </div>
-          <div className="item">
-            <img src={Groups} alt="" />
-            <span>Groups</span>
-          </div>
-          <div className="item">
-            <img src={Pages} alt="" />
-            <span>Pages</span>
-          </div>
-          <div className="item">
-            <img src={marketplace} alt="" />
-            <span>Marketplace</span>
-          </div>
-          <div className="item">
-            <img src={Watch} alt="" />
-            <span>Watch</span>
-          </div>
-          <div className="item">
-            <img src={Memories} alt="" />
-            <span>Memories</span>
-          </div>
+         
         </div>
-        <hr/>
+        <hr />
         <div className="menu">
-          <span>Your shortcuts</span>
-          <div className="item">
-            <img src={Events} alt="" />
-            <span>Events</span>
-          </div>
-          <div className="item">
-            <img src={Game} alt="" />
-            <span>Gaming</span>
-          </div>
+          
+          
           <div className="item">
             <img src={Gallary} alt="" />
             <span>Gallary</span>
           </div>
-          <div className="item">
-            <img src={Videos} alt="" />
-            <span>Videos</span>
-          </div>
-          <div className="item">
-            <img src={Message} alt="" />
-            <span>Massages</span>
-          </div>
           
           
+
+
         </div>
-  
-        
+
+
       </div>
     </div>
   )

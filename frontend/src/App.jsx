@@ -26,7 +26,7 @@ function App() {
       <QueryClientProvider client={queryClient}>
       <div className={darkMode ? "dark" : "light"} >
         <Navbar />
-        <div className="fw" style={{ display: "flex", justifyContent: "center" }}>
+        <div className="fw" style={{ display: "flex", justifyContent: "center",  }}>
           <Leftbar />
           <div style={{ flex: 6 }}>
             <Outlet />
