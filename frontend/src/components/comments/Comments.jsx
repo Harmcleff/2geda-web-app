@@ -49,7 +49,7 @@ export const Comments = ({ postId }) => {
     
     
 
-    
+    console.log(desc)
 
     return (
         <div className="comments">
@@ -57,7 +57,7 @@ export const Comments = ({ postId }) => {
                 <img src={"/upload/" +currentUser.profilePic} alt="" />
                 <div htmlFor="com" html className="input">
                     <input type="text" id="com" placeholder="Write a comment" value={desc} onChange={(e) => setDesc(e.target.value)} />
-                    <button onClick={handleClick}><FontAwesomeIcon icon={faPaperPlane} /></button>
+                    <button disabled={desc === ''} onClick={handleClick}><FontAwesomeIcon icon={faPaperPlane} /></button>
                 </div>
             </div>
             {isLoading

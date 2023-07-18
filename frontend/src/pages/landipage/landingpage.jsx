@@ -43,7 +43,7 @@ const landingpage = () => {
                     <div className="images">
                         <div className="txt">
                             <h1 ><span className="color">Bringing the World </span><br />Closer 2geda</h1>
-                            <p>Keeping up with friends is faster and easier than ever. Share updates <br />and photos, engage with friends and Pages, and stay connected <br />to communities important to you.</p>
+                            <p>Keeping up with friends is faster and easier than ever.</p>
                             <div className="btn">
                                 <Link to="/register">
                                     <button>Register
@@ -77,7 +77,7 @@ const landingpage = () => {
 
             </div>
 
-            <div className="family">
+            {/* <div className="family">
                 <div className="content">
                     <div className="wrap">
                         <img src="https://static01.nyt.com/images/2020/05/06/smarter-living/06sl-coronavirus-stayintouch/06sl-coronavirus-stayintouch-mediumSquareAt3X.jpg" alt="" />
@@ -91,7 +91,7 @@ const landingpage = () => {
                     </div>
                 </div>
 
-            </div>
+            </div> */}
             <div className="section">
                 <div className="container">
                     <div className="cover">
