@@ -18,6 +18,8 @@ import { useLocation } from "react-router-dom";
 import { makeRequest } from "../../axios";
 import { useQuery, useQueryClient, useMutation } from '@tanstack/react-query'
 import { Link } from "react-router-dom";
+import blankProfile from "../../assets/img/avatar.png"
+
 const leftbar = () => {
   const { currentUser } = useContext(AuthContext);
 
@@ -36,7 +38,7 @@ const leftbar = () => {
       <div className="container">
         <div className="menu">
           <div className="user">
-            <img src={"/upload/" + data?.profilePic} />
+            <img src={data?.profilePic === '' ? (blankProfile) :("/upload/" + data?.profilePic)} />
             <Link to={`/profile/${currentUser.id}`} style={{ textDecoration: "none", color: 'inherit' }}>
             <span >{data?.name}</span>
             </Link>

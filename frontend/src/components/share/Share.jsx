@@ -9,6 +9,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { makeRequest } from '../../axios';
 import { useQuery } from '@tanstack/react-query'
 import { Link } from 'react-router-dom';
+import blankProfile from "../../assets/img/avatar.png"
 
 
 export const Share = () => {
@@ -73,7 +74,7 @@ export const Share = () => {
         <div className="top">
         <Link  to={`/profile/${data?.id}`}>
           <img
-            src={"/upload/" + data?.profilePic}
+            src={data?.profilePic === '' ? (blankProfile) :("/upload/" + data?.profilePic)}
             alt=""
           />
           </Link>

@@ -17,7 +17,8 @@ import { AuthContext } from '../../context/authContext';
 import { useContext, useState } from 'react';
 import  Update  from '../../components/update/Update';
 import "../../components/update/Update.scss"
-import blank from "../../assets/img/prof.jpeg"
+import blankCover from "../../assets/img/prof.jpeg"
+import blankProfile from "../../assets/img/avatar.png"
 const profile = () => {
   const [openUpdate, setOpenUpdate] = useState(false)
   const { currentUser, logout } = useContext(AuthContext)
@@ -78,12 +79,12 @@ const profile = () => {
     document.body.classList.remove('active-modal')
   }
   
-  console.log(data?.coverPic === null)
+  console.log(data?.coverPic === '')
   return (
     <div className="profile">
       <div className="images">
-        <img src={true ? (blank) :("/upload/" + data?.coverPic)} alt="" className="cover" />
-        <img src={"/upload/" + data?.profilePic} alt="" className="profilePic" />
+        <img src={data?.coverPic === '' ? (blankCover) :("/upload/" + data?.coverPic)} alt="" className="cover" />
+        <img src={data?.profilePic === '' ? (blankProfile) :("/upload/" + data?.profilePic)} alt="" className="profilePic" />
       </div>
       <div className="profileContainer">
         <div className="userInfo">

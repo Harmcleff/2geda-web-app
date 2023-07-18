@@ -15,6 +15,7 @@ import { useQuery, useQueryClient, useMutation } from '@tanstack/react-query'
 import { AuthContext } from '../../context/authContext';
 import { Link } from 'react-router-dom';
 import { countPosts } from '../../../../api/controllers/post';
+import blankProfile from "../../assets/img/avatar.png"
 
 
 const Post = ({ post }) => {
@@ -75,7 +76,7 @@ const Post = ({ post }) => {
             <div className="container">
                 <div className="user">
                     <div className="userInfo">
-                        <img src={"/upload/" + post.profilePic} alt="" />
+                        <img src={post?.profilePic === '' ? (blankProfile) :("/upload/" + post?.profilePic)} alt="" />
                         <div className="details">
                             <Link to={`/profile/${post.userId}`} style={{ textDecoration: "none", color: 'inherit' }}>
                                 <span className='name'>{post.name}</span>

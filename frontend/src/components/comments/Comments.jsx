@@ -6,6 +6,7 @@ import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import { makeRequest } from '../../axios'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import moment from "moment"
+import blankProfile from "../../assets/img/avatar.png"
 
 export const Comments = ({ postId }) => {
 
@@ -44,17 +45,22 @@ export const Comments = ({ postId }) => {
         setDesc('')
 
     }
-    
+    const { data: updateUser } = useQuery(["leftUser"], () =>
+    makeRequest.get("/users/find/" + currentUser.id).then(res => {
+      return res.data;
+    })
+
+  )
    
     
     
 
-    console.log(desc)
+    console.log(updateUser)
 
     return (
         <div className="comments">
             <div className="write">
-                <img src={"/upload/" +currentUser.profilePic} alt="" />
+                <img src={updateUser?.profilePic === '' ? (blankProfile) :("/upload/" + updateUser?.profilePic)} alt="" />
                 <div htmlFor="com" html className="input">
                     <input type="text" id="com" placeholder="Write a comment" value={desc} onChange={(e) => setDesc(e.target.value)} />
                     <button disabled={desc === ''} onClick={handleClick}><FontAwesomeIcon icon={faPaperPlane} /></button>
@@ -64,7 +70,7 @@ export const Comments = ({ postId }) => {
                 ? "Loading"
                 : data.map(comment => (
                     <div className="comment" >
-                        <img src={"/upload/" + comment.profilePic} alt={comment.name} />
+                        <img src={comment?.profilePic === '' ? (blankProfile) :("/upload/" + comment?.profilePic)} alt={comment.name} />
                         <div className="info">
                             <div className="bg">
                                 <span>{comment.name}</span>

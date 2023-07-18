@@ -14,6 +14,7 @@ import { AuthContext } from "../../context/authContext";
 import '../../style.scss'
 import { makeRequest } from "../../axios";
 import { useQuery, useQueryClient, useMutation } from '@tanstack/react-query'
+import blankProfile from "../../assets/img/avatar.png"
 
 const navbar = () => {
 
@@ -65,7 +66,7 @@ const navbar = () => {
             <SearchRoundedIcon />
           </div>
           <Link to={`/profile/${data?.id}`}>
-            <img src={"/upload/" + data?.profilePic} alt='' />
+            <img src={data?.profilePic === '' ? (blankProfile) :("/upload/" + data?.profilePic)} alt='' />
           </Link>
         </div>
       </div>
