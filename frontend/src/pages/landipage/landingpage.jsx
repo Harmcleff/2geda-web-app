@@ -120,7 +120,7 @@ const landingpage = () => {
                 </div>
 
             </div>
-            <div className="features">
+            {/* <div className="features">
                 <span>Features</span>
                 <div className="darkmode">
                     <span>Dark Mode</span>
@@ -137,9 +137,9 @@ const landingpage = () => {
 
                 </div>
 
-            </div>
+            </div> */}
 
-            <div className="about">
+            {/* <div className="about">
                 <span>About Dev.</span>
 
 
@@ -179,7 +179,7 @@ const landingpage = () => {
                     </div>
                 </div>
 
-            </div>
+            </div> */}
             <div className="footer">
                 <div className="foot">
                     <Link to="/">
@@ -187,7 +187,7 @@ const landingpage = () => {
                     </Link>
                     <div className="txxt">
                         <Link to="https://github.com/Harmcleff/Social-Network-app">
-                            <p>Portfolio Project for Holberton School 2023</p>
+                            <p>Sanyaolu Hammed, Portfolio Project 2023</p>
                         </Link>
                     </div>
 

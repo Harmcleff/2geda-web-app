@@ -1,6 +1,6 @@
 import axios from "axios";
 
 export const makeRequest = axios.create({
-    baseURL: "http://localhost:8800/api/v1/",
+    baseURL: "https://2geda.tech/api/v1/",
     withCredentials: true
 }); 

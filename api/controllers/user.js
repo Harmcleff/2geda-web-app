@@ -49,3 +49,19 @@ export const updateUser = (req, res) => {
 
 }
 
+
+
+
+export const searchUser = (req, res) => {
+    const searchQuerry = req.query.search;
+    const q = `SELECT * FROM users WHERE name LIKE '%${searchQuerry}%'`
+
+    db.query(q, [searchQuerry], (err, data) => {
+        if (err) return res.status(500).json(err)
+        const { password, ...info } = data;
+        return res.json(info)
+
+    })
+
+
+}

@@ -53,7 +53,7 @@ const Login = () => {
             <span className="log">2geda</span>
           </Link>
           <div className="bod">
-            <form className="form" >
+            <form onSubmit={handleLogin} className="form" >
 
 
               <h1>Welcome back.</h1>
@@ -61,15 +61,15 @@ const Login = () => {
 
               <br />
 
-              <input placeholder="Username" id="username" type="text" name="username" onChange={handleChange} />
+              <input required placeholder="Username" id="username" type="text" name="username" onChange={handleChange} />
               <br />
               <br />
 
-              <input placeholder="Password" id="password" type="password" name="password" onChange={handleChange} />
+              <input required placeholder="Password" id="password" type="password" name="password" onChange={handleChange} />
               <br />
               <div className="error">{err && err}</div>
-        
-              <button className="btn" onClick={handleLogin}>Log in</button>
+              <br />
+              <button className="btn" >Log in</button>
               <br />
              
 

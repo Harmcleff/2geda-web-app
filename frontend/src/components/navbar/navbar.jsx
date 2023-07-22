@@ -7,7 +7,7 @@ import GridViewRoundedIcon from '@mui/icons-material/GridViewRounded';
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import NotificationsRoundedIcon from '@mui/icons-material/NotificationsRounded';
 import ProfImg from "../../assets/img/prof.jpeg"
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { DarkModeContext } from "../../context/darkModeContext";
 import LightModeRoundedIcon from '@mui/icons-material/LightModeRounded';
 import { AuthContext } from "../../context/authContext";
@@ -15,11 +15,16 @@ import '../../style.scss'
 import { makeRequest } from "../../axios";
 import { useQuery, useQueryClient, useMutation } from '@tanstack/react-query'
 import blankProfile from "../../assets/img/avatar.png"
+import axios from 'axios';
 
 const navbar = () => {
 
   const { darkMode, toggle } = useContext(DarkModeContext)
   const { currentUser, logout } = useContext(AuthContext);
+  const [search, setSearch] = useState("mido")
+  const [myData, setmyData] = useState(null);
+  const [isLoadin, setIsLoadin] = useState(true);
+  const [erro, setErro] = useState(null);
 
   const { isLoading, error, data } = useQuery(["NavUser"], () =>
     makeRequest.get("/users/find/" + currentUser.id).then(res => {
@@ -36,7 +41,41 @@ const navbar = () => {
 
   }
 
-  console.log(data)
+  const handleChange = (e) => {
+    setSearch(...prev)
+  }
+
+  // const { data: searchPost } = useQuery(["searchPost"], () =>
+  //   makeRequest.get(`/users/search?search=${search}`).then(res => {
+  //     return res.data;
+  //   })
+
+  // )
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await axios.get(`https://2geda.tech/api/v1/users/search?search=${search}`);
+  //       setmyData(response.data);
+  //     } catch (error) {
+  //       setErro(error);
+  //     } finally {
+  //       setIsLoadin(false);
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, [search]);
+
+  console.log(myData)
+  console.log(typeof JSON.stringify(search))
+
+  const date = [
+    {
+      id: 1,
+      name: "hammed"
+    }
+  ]
   return (
     <div className="navbar">
       <div className="leftbar">
@@ -50,28 +89,43 @@ const navbar = () => {
 
       </div>
       <div className="centerbar">
-        <div className="search">
+        {/* <div className="search">
           <SearchRoundedIcon />
-          <input type="text" placeholder='Search 2geda' />
-        </div>
-
-      </div>
-      <div className="rightbar">
-        <div className="icon">{darkMode ? <LightModeRoundedIcon onClick={toggle} /> : <DarkModeRoundedIcon onClick={toggle} />}</div>
-        <Link to={`/profile/${data?.id}`} style={{ textDecoration: "none", color: 'inherit' }}><div className="icon"><PersonRoundedIcon /></div></Link>
-        <button className='logout' onClick={handleClick}>Log out </button>
-
-        <div className="user">
-          <div className="sear" style={{ display: "none" }}>
-            <SearchRoundedIcon />
+          <input type="text" placeholder='Search 2geda' onChange={(e) => setSearch(e.target.value)} />
+          <div>
+            {Array.isArray(myData) && myData.length > 0 ? (
+              myData.map((item) => (
+                <div key={item.id}>
+                  <h3>{item.name}</h3>
+                  <p>{item.description}</p>
+                </div>
+              ))
+            ) : (
+              <div>No data available.</div>
+            )}
+            
           </div>
-          <Link to={`/profile/${data?.id}`}>
-            <img src={data?.profilePic === '' ? (blankProfile) :("/upload/" + data?.profilePic)} alt='' />
-          </Link>
+          </div>
+
+        </div> */}
+        <div className="rightbar">
+          <div className="icon">{darkMode ? <LightModeRoundedIcon onClick={toggle} /> : <DarkModeRoundedIcon onClick={toggle} />}</div>
+          <Link to={`/profile/${data?.id}`} style={{ textDecoration: "none", color: 'inherit' }}><div className="icon"><PersonRoundedIcon /></div></Link>
+          <button className='logout' onClick={handleClick}>Log out </button>
+
+          <div className="user">
+            <div className="sear" style={{ display: "none" }}>
+              <SearchRoundedIcon />
+            </div>
+            <Link to={`/profile/${data?.id}`}>
+              <img src={data?.profilePic === '' ? (blankProfile) : ("/upload/" + data?.profilePic)} alt='' />
+            </Link>
+          </div>
         </div>
       </div>
-    </div>
-  )
+      </div>
+      )
 }
 
-export default navbar
+
+      export default navbar

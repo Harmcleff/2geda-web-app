@@ -19,6 +19,7 @@ export const Comments = ({ postId }) => {
             return res.data;
 
         })
+        
 
     )
 

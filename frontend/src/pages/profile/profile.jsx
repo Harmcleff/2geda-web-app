@@ -79,7 +79,7 @@ const profile = () => {
     document.body.classList.remove('active-modal')
   }
   
-  console.log(data?.coverPic === '')
+  console.log(data?.instagram)
   return (
     <div className="profile">
       <div className="images">
@@ -90,22 +90,22 @@ const profile = () => {
         <div className="userInfo">
           <div className="left">
             <div className="item">
-              <Link to={data?.instagram}>
+              <Link to={`https://instagram.com/${data?.instagram}`}>
                 <InstagramIcon fontSize='large' />
               </Link>
             </div>
             <div className="item">
-              <Link to='https://facebook.com'>
+              <Link to={`https://facebook.com/${data?.facebook}`}>
                 <FacebookIcon fontSize='large' />
               </Link>
             </div>
             <div className="item">
-              <Link to='https://twitter.com'>
+              <Link to={`twitter.com/${data?.twitter}`}>
                 <TwitterIcon fontSize='large' />
               </Link>
             </div>
             <div className="item">
-              <Link to='https://linkedin.com'>
+              <Link to={`https://linkedin.com/${data?.linkedin}`}>
                 <LinkedInIcon fontSize='large' />
               </Link>
             </div>
@@ -129,7 +129,9 @@ const profile = () => {
               : <button onClick={handleFollow}>{relationshipData?.includes(currentUser.id) ? "Following" :  " Follow"}</button>}
           </div>
           <div className="right">
+          
             <EmailIcon />
+           
             <MoreVertIcon />
           </div>
         </div>

@@ -25,7 +25,7 @@ const Register = () => {
     e.preventDefault();
 
     try {
-      await axios.post("http://localhost:8800/api/v1/auth/register", inputs)
+      await axios.post("https://2geda.tech/api/v1/auth/register", inputs)
       navigate('/login')
     } catch (err) {
       setErr(err.response.data)
@@ -39,6 +39,18 @@ const Register = () => {
     setMobile(validatedValue);
   };*/
 
+  const [focused, setFocused] = useState(false)
+
+  const handleFocus = (e) => {
+    setFocused(true);
+  }
+
+  const error = ["Name should be 3-16 characters and shouldn't include any special character!",
+    "Username should be 3-16 characters!",
+    "It should be a valid email address!",
+    "Minimum six characters, at least one letter and one number!",
+    "Enter a valid Phone Number!"
+  ]
   console.log(err)
 
 
@@ -47,39 +59,55 @@ const Register = () => {
 
       <div className="wrapper">
         <div className="curv">
-        <Link to="/">
+          <Link to="/">
             <span className="log">2geda</span>
           </Link>
           <div className="bod">
-            <form className="form">
+            <form onSubmit={handleClick} className="form">
               <h1>Create an Account</h1>
               <p>It's quick and easy.</p>
               <br />
-              <br />
-
-              <input id="name" required placeholder="Name" type="text" name="name" onChange={handleChange} />
-              <br />
-              <br />
 
 
+              <input id="name" required placeholder="Name" type="text" name="name" onChange={handleChange}
+                onBlur={handleFocus}
+                focused={focused.toString()}
+              />
 
-              <input id="username" required placeholder="Username" type="text" name="username" onChange={handleChange} />
               <br />
               <br />
 
 
 
-              <input id="email" required placeholder="Email" type="text" name="email" onChange={handleChange} />
+              <input id="username" required placeholder="Username" type="text" name="username" onChange={handleChange}
+                onBlur={handleFocus}
+                focused={focused.toString()}
+              />
+
               <br />
               <br />
 
 
-              <input id="password" placeholder="Password" type="password" name="password" onChange={handleChange} />
+
+              <input id="email" required placeholder="Email" type="email" name="email"
+                onBlur={handleFocus}
+                focused={focused.toString()}
+                onChange={handleChange} />
+
               <br />
               <br />
+
+
+              <input id="password" placeholder="Password" required type="password" name="password"
+                onBlur={handleFocus}
+                focused={focused.toString()}
+                onChange={handleChange} />
+              <br /><br />
+
+
               <div className="inner">
                 <label htmlFor="gender">Gender: </label>
-                <select name="gender" onChange={handleChange} id="gender">
+                <select required name="gender" onChange={handleChange} id="gender">
                   <option value="Male" name="gender"  >Male</option>
                   <option value="Female" name="gender" >Female</option>
                 </select>
@@ -87,9 +115,9 @@ const Register = () => {
 
                 <label htmlFor="dob">Date of Birth</label>
 
-                <input id="dob" type="date" name="dob" onChange={handleChange} /></div>
-              <br />
+                <input id="dob" required type="date" name="dob" onChange={handleChange} /></div>
 
+              <br />
 
               <input
                 placeholder="Phone Number"
@@ -97,14 +125,19 @@ const Register = () => {
                 name="number"
                 type="tel"
                 onChange={handleChange}
+                required
+                pattern="[0-9]{9,12}$"
+                onBlur={handleFocus}
+                focused={focused.toString()}
 
               />
               <br />
+              <br />
               <div className="error">{err && err}</div>
-              
-              <button className="btn" onClick={handleClick}>Sign up</button>
+
+              <button className="btn">Sign up</button>
               <br />
-              <br />
+
               <span>Have an account already? <Link to="/login"> Log in</Link> </span>
             </form>
             <div className="aside">

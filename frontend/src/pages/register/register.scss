@@ -52,7 +52,7 @@ body {
             display: flex;
             justify-content: center;
             width: 1100px;
-            height: 700px;
+            height: 850px;
             background-color: #ffffff;
             margin-right: auto;
             margin-left: auto;
@@ -65,7 +65,7 @@ body {
 
             @include mobile {
                 width: 411px;
-                height: 700px;
+                height: 800px;
                 overflow-y: hidden;
                 overflow-x: hidden;
             }
@@ -81,6 +81,9 @@ body {
             }
 
             .form {
+
+              
+
                 @include tablet {
                     padding: 10px;
 
@@ -97,17 +100,18 @@ body {
                     width: 380px;
                     border: 1px solid gray;
                     background: none;
-                    margin-top: -90px;
                     border-radius: 6px;
+
                 }
 
-
-
+               
+                
 
                 .inner {
                     display: flex;
                     align-items: center;
                     gap: 8px;
+                    margin-top: 20px;
 
                     #dob {
                         width: 110px;
@@ -145,6 +149,7 @@ body {
                     color: white;
                     align-items: center;
                     justify-content: center;
+                    margin-top: -10px
                 }
 
                 .btn:hover {

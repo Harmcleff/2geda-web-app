@@ -12,7 +12,7 @@ body {
 
             @include mobile {
                 width: 411px;
-                height: 700px;
+                height: 800px;
                 overflow-y: hidden;
                 overflow-x: hidden;
             }
@@ -28,7 +28,7 @@ body {
                 }
                 
                 .error{
-                    padding-top: 20px;
+                   
                     color: firebrick;
                 }
 
@@ -41,8 +41,8 @@ body {
                     padding: 14px;
                     width: 380px;
                     background: none;
-                    margin-top: -90px;
                     font-size: 14pt;
+                    
 
                     @include mobile {
                         width: 340px;
@@ -74,7 +74,12 @@ body {
 
 
 
+                input:invalid~.btn {
+                    @include mobile {
+                        margin-top: -10px;
+                    }
 
+                }
 
                 .btn {
                     border-radius: 9999px;
@@ -86,6 +91,7 @@ body {
                     font: inherit;
                     font-weight: 570;
                     color: white;
+                    margin-top: 17px;
                 }
 
                 .btn:hover {

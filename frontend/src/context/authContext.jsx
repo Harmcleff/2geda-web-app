@@ -12,7 +12,7 @@ export const AuthContextProvider = ({ children }) => {
 
     const login = async (inputs) => {
 
-        const res = await axios.post("http://localhost:8800/api/v1/auth/login", inputs, {
+        const res = await axios.post("https://2geda.tech/api/v1/auth/login", inputs, {
             withCredentials: true,
         });
         setCurrentUser(res.data);

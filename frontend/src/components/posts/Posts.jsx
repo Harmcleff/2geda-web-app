@@ -22,9 +22,9 @@ export const Posts = ({ userId }) => {
   return (
     <div className='posts'>
       {error
-        ? "Something went wrong"
+        ? <div className="empty">Something went wrong</div>
         : isLoading
-          ? "Loading"
+          ? <div className="empty">Loading</div>
           :data?.length === 0
           ? <div className="empty">You don't have any post yet</div>
           : data.map(post => 
