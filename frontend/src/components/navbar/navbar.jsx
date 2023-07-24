@@ -44,6 +44,15 @@ const navbar = () => {
   const handleChange = (e) => {
     setSearch(...prev)
   }
+  
+  const { isLoading:searchLoading, error:searchError, data:searchData } = useQuery(['posts'], () =>
+
+    makeRequest.get(`/users/search?search=${search}`).then(res => {
+      return res.data;
+
+    })
+
+  )
 
   // const { data: searchPost } = useQuery(["searchPost"], () =>
   //   makeRequest.get(`/users/search?search=${search}`).then(res => {
@@ -67,7 +76,9 @@ const navbar = () => {
   //   fetchData();
   // }, [search]);
 
-  console.log(myData)
+  console.log(searchData)
+  console.log(searchLoading)
+  console.log(searchError)
   console.log(typeof JSON.stringify(search))
 
   const date = [

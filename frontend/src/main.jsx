@@ -6,6 +6,7 @@ import { AuthContextProvider } from './context/authContext.jsx'
 import { ShowStoriesContextProvider } from './context/showStoriesContext.jsx'
 import { Buffer } from 'buffer'
 globalThis.Buffer = Buffer
+window.global ||= window
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

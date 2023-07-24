@@ -59,11 +59,10 @@ const Register = () => {
 
       <div className="wrapper">
         <div className="curv">
-          <Link to="/">
-            <span className="log">2geda</span>
-          </Link>
+          
           <div className="bod">
             <form onSubmit={handleClick} className="form">
+              
               <h1>Create an Account</h1>
               <p>It's quick and easy.</p>
               <br />
