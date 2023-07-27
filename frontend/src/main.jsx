@@ -5,6 +5,7 @@ import { DarkModeContextProvider } from './context/DarkModecontext.jsx'
 import { AuthContextProvider } from './context/authContext.jsx'
 import { ShowStoriesContextProvider } from './context/showStoriesContext.jsx'
 import { Buffer } from 'buffer'
+import { HashRouter } from "react-router-dom";
 globalThis.Buffer = Buffer
 window.global ||= window
 
@@ -13,10 +14,13 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <DarkModeContextProvider>
       <ShowStoriesContextProvider>
         <AuthContextProvider>
+
           <App />
         </AuthContextProvider>
       </ShowStoriesContextProvider>
     </DarkModeContextProvider>
+  </React.StrictMode>
 
-  </React.StrictMode>,
+
+
 )

@@ -2,16 +2,86 @@
 
 
 
-.home{
-    padding: 30px 120px;
-   
-    
-    @include mobile {
-         padding: 10px 0px;
-         margin-left: 0px;
-    }
-    @include tablet {
-        padding: 0px;
-        
-   }
+.home {
+     padding: 30px 120px;
+
+     .mobileSearch {
+
+          display: none;
+          background: #fcfcfc;
+         
+
+
+          input {
+               border: none;
+               width: 100%;
+               padding: 10px 13px;
+               background: transparent;
+               font-size: 11pt;
+               font-family: inherit;
+
+
+               &:focus {
+                    outline: none;
+
+               }
+          }
+
+          .searchResult {
+
+               .arrange {
+
+
+                    a {
+                         display: flex;
+                         justify-content: space-between;
+                         gap: 30px;
+                         border-top: 1px solid #999999;
+                         padding: 10px 13px;
+
+
+
+                         &:hover {
+                              background: #f0f2f5;
+                         }
+                    }
+
+
+                    &:hover {
+                         background: #f0f2f5;
+                    }
+
+
+                    img {
+                         width: 50px;
+                         height: 50px;
+                         border-radius: 50%;
+                         object-fit: cover;
+                    }
+               }
+
+
+          }
+
+          cursor: pointer;
+
+
+
+          @include mobile {
+               display: block;
+               margin-top: 80px;
+
+
+          }
+     }
+
+     @include mobile {
+          padding: 10px 0px;
+          margin-left: 0px;
+     }
+
+     @include tablet {
+          padding: 0px;
+
+     }
 }

@@ -1,11 +1,14 @@
+@import "../../style.scss";
+
 body.active-modal {
     overflow-y: hidden;
 }
 
 
 
-.update, .overlay{
-    
+.update,
+.overlay {
+
     height: 100%;
     top: 0;
     left: 0;
@@ -16,22 +19,28 @@ body.active-modal {
     width: 100%;
     
 
-    
-    input{
-        width: 80% ;
+    @include mobile {
+        overflow-x: scroll;
+    }
+
+
+
+    input {
+        width: 80%;
         padding: 10px 10px;
         font-size: 12px;
         font: inherit;
     }
-   
-    
+
+
 }
 
 .overlay {
-    background: rgba(49,49,49,0.8);
+    background: rgba(49, 49, 49, 0.8);
 }
 
 .modal-content {
+    
     position: absolute;
     top: 50%;
     left: 50%;
@@ -44,29 +53,34 @@ body.active-modal {
     min-width: 300px;
     z-index: 9999999999999999;
     
+    @include mobile {
+        margin-top: 40px;
+    }
+
 }
 
-.btn{
+.btn {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    
-    button{
+
+    button {
         padding: 10px;
         cursor: pointer;
-        &:first-child{
+
+        &:first-child {
             border: none;
             background: #f0554f;
             color: white;
-            
+
         }
-        
-        &:last-child{
+
+        &:last-child {
             border: none;
             background: rgb(3, 107, 29);
             color: white;
         }
     }
-    
+
 }

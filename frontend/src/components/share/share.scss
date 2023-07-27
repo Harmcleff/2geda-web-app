@@ -10,17 +10,20 @@
     color: #222;
     margin-bottom: 20px;
     margin-top: 50px;
-    @include mobile {
-        margin-top: 80px;
 
-    }
-    
     @include tablet {
         margin-top: 80px;
 
     }
-    
-    
+
+    @include mobile {
+        margin-top: 10px;
+
+    }
+
+
+
+
 
     .container {
         padding: 20px;
@@ -157,8 +160,8 @@
                     border-radius: 5px;
                     gap: 5px;
                     font-family: inherit;
-                    
-                    &:disabled{
+
+                    &:disabled {
                         background: rgb(199, 120, 199);
                     }
                 }

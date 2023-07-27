@@ -47,7 +47,7 @@ const update = ({ setOpenUpdate, user, openUpdate }) => {
             onSuccess: () => {
                 // Invalidate and refetch
                 queryClient.invalidateQueries(['user'])
-                queryClient.invalidateQueries(['posts'])
+                queryClient.invalidateQueries(['postz'])
                 queryClient.invalidateQueries(['leftUser'])
                 queryClient.invalidateQueries(['NavUser'])
             },

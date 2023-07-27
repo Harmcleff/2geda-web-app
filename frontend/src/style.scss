@@ -4,7 +4,7 @@
     min-height: 1100px;
     
     @media (max-width: 480px) {
-        min-height: 60px;
+        min-height: 900px;
     }
 }
 
@@ -46,7 +46,7 @@
 
 
                 input {
-
+                    color: whitesmoke;
                     &::placeholder {
                         color: whitesmoke;
                     }
@@ -63,7 +63,12 @@
             .icon {
                 background: #333;
             }
-
+            .icon2 {
+                background: #333;
+            }
+            .icon3 {
+                background: #333;
+            }
             .user {
 
                 img {
@@ -148,6 +153,7 @@
                 .input {
 
                     background: #444;
+                    
 
 
 
@@ -159,7 +165,7 @@
 
                 input {
 
-
+                    color: whitesmoke;
                     &::placeholder {
                         color: whitesmoke;
                     }
