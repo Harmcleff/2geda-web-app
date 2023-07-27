@@ -1,0 +1,168 @@
+@import "../../style.scss";
+
+.share {
+
+    -webkit-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+    -moz-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+    box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+    border-radius: 20px;
+    background-color: white;
+    color: #222;
+    margin-bottom: 20px;
+    margin-top: 50px;
+    @include mobile {
+        margin-top: 80px;
+
+    }
+    
+    @include tablet {
+        margin-top: 80px;
+
+    }
+    
+    
+
+    .container {
+        padding: 20px;
+
+        .top {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+
+
+
+
+            img {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+
+            input {
+                background: #f0f2f5;
+                width: 100%;
+                border-radius: 15px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                padding-left: 10px;
+                padding-right: 20px;
+                display: flex;
+                align-items: center;
+                font: inherit;
+                border: none;
+                outline: none;
+            }
+        }
+
+        .postImg {
+            margin-top: 20px;
+            height: auto;
+            margin-left: auto;
+            margin-right: auto;
+            width: 500px;
+            position: relative;
+
+            @include mobile {
+                width: 300px;
+
+            }
+
+            span {
+                cursor: pointer;
+                position: absolute;
+                top: -10px;
+                left: 520px;
+                font-size: 25px;
+                color: #5f646c;
+
+                &:hover {
+                    padding: 5px;
+                    padding-left: 10px;
+                    padding-right: 10px;
+                    text-align: center;
+                    background: rgba(128, 128, 128, 0.116);
+
+
+
+                }
+
+                @include mobile {
+                    left: 320px;
+                    font-size: 20px;
+                    top: -10px;
+
+                }
+
+            }
+
+
+            img {
+                width: 500px;
+                height: auto;
+
+                @include mobile {
+                    width: 300px;
+
+                }
+            }
+        }
+
+        hr {
+            margin: 20px 0px;
+            border: none;
+            height: 0.5px;
+            background-color: #d2d7df;
+        }
+
+        .bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+
+
+            .left {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+
+                .item {
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                    cursor: pointer;
+
+                    img {
+                        height: 20px;
+                    }
+
+                    span {
+                        font-size: 16px;
+                        color: gray;
+                    }
+                }
+            }
+
+            .right {
+                button {
+                    display: flex;
+                    align-items: center;
+                    border: none;
+                    padding: 10px;
+                    color: white;
+                    cursor: pointer;
+                    background-color: purple;
+                    border-radius: 5px;
+                    gap: 5px;
+                    font-family: inherit;
+                    
+                    &:disabled{
+                        background: rgb(199, 120, 199);
+                    }
+                }
+            }
+        }
+    }
+}

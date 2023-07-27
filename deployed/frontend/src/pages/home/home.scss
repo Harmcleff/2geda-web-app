@@ -1,0 +1,17 @@
+@import "../../style.scss";
+
+
+
+.home{
+    padding: 30px 120px;
+   
+    
+    @include mobile {
+         padding: 10px 0px;
+         margin-left: 0px;
+    }
+    @include tablet {
+        padding: 0px;
+        
+   }
+}
