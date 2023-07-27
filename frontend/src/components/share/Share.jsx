@@ -40,7 +40,7 @@ export const Share = () => {
     {
       onSuccess: () => {
         // Invalidate and refetch
-        queryClient.invalidateQueries(['posts'])
+        queryClient.invalidateQueries(['postz'])
       },
     }
   )

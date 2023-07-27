@@ -38,7 +38,7 @@ const leftbar = () => {
       <div className="container">
         <div className="menu">
           <div className="user">
-            <img src={data?.profilePic === '' ? (blankProfile) :("/upload/" + data?.profilePic)} />
+            <img src={data?.profilePic === '' || null || undefined ? (blankProfile) :("/upload/" + data?.profilePic)} />
             <Link to={`/profile/${currentUser.id}`} style={{ textDecoration: "none", color: 'inherit' }}>
             <span >{data?.name}</span>
             </Link>

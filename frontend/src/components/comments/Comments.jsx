@@ -34,6 +34,7 @@ export const Comments = ({ postId }) => {
                 // Invalidate and refetch
                 queryClient.invalidateQueries(['comments'])
                 queryClient.invalidateQueries(['posts'])
+                queryClient.invalidateQueries(['commentd'])
             },
         }
     )
@@ -70,7 +71,7 @@ export const Comments = ({ postId }) => {
             {isLoading
                 ? "Loading"
                 : data.map(comment => (
-                    <div className="comment" >
+                    <div className="comment"  key={comment.id}>
                         <img src={comment?.profilePic === '' ? (blankProfile) :("/upload/" + comment?.profilePic)} alt={comment.name} />
                         <div className="info">
                             <div className="bg">

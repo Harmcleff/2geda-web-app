@@ -45,3 +45,25 @@ export const addComment = (req, res) => {
 
  
 }
+
+export const deleteComment = (req, res) => {
+    const token = req.cookies.accesstoken;
+    if (!token) return res.status(401).json("Not Logged in");
+
+    jwt.verify(token, "secretkey", (err, userInfo) => {
+        if (err) return res.status(403).json("Token is not valid")
+
+        const q = "DELETE FROM comments WHERE `id` = ? AND `postId` = ?";
+
+
+        db.query(q, [req.params.id, userInfo.id], (err, data) => {
+            if (err) return res.status(500).json(err);
+            if (data.affectedRows > 0) return res.status(200).json("Comment has been deleted")
+            return res.status(403).json("You can delete only your Comment")
+        });
+
+
+    })
+
+
+}

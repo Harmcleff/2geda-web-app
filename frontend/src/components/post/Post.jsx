@@ -30,7 +30,12 @@ const Post = ({ post }) => {
 
     );
     
-   
+    const { data:commentData } = useQuery(["commentd", post.id], () =>
+    makeRequest.get("/comments?postId=" + post.id).then(res => {
+        return res.data;
+    })
+
+);
 
     const queryClient = useQueryClient()
 
@@ -59,17 +64,18 @@ const Post = ({ post }) => {
         {
             onSuccess: () => {
                 // Invalidate and refetch
-                queryClient.invalidateQueries(['posts'])
+                queryClient.invalidateQueries(['postz'])
             },
         }
     )
+    
     
     const handleDelete = () =>{
         deleteMutation.mutate(post.id)
     }
     
    
-
+console.log(commentData)
     return (
         <div className="post">
             
@@ -91,16 +97,16 @@ const Post = ({ post }) => {
                 </div>
                 <div className="content">
                     <p>{post.desc}</p>
-                    <img src={"./upload/" + post.img} alt="" />
+                    <img src={"/upload/" + post.img} alt="" />
                 </div>
                 <div className="info">
                     <div className="item">
                         {data?.includes(currentUser.id) ? <FavoriteRoundedIcon style={{ color: "red" }} onClick={handleLike} /> : <FavoriteBorderRoundedIcon onClick={handleLike} />}
-                        {data?.length} Likes
+                        {data?.length <= 1 ?  `${data?.length} Like` :` ${data?.length} Likes` }
                     </div>
                     <div className="item" onClick={() => setCommentOpen(!commentOpen)}>
                         <FontAwesomeIcon icon={faComment} />
-                        Comment
+                       {commentData?.length <= 1 ?  `${commentData?.length} Comment` :` ${commentData?.length} Comments` }
                     </div>
                     {/* <div className="item">
                         <FontAwesomeIcon icon={faShare} />

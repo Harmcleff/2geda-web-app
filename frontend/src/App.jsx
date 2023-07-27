@@ -8,7 +8,7 @@ import Rightbar from "./components/rightbar/rightbar"
 import Profile from "./pages/profile/profile"
 import Landing from "./pages/landipage/landingpage"
 import Error404 from "./pages/Error404/Error404"
-import { createBrowserRouter, RouterProvider, Route, Outlet, Navigate } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Route, Outlet, Navigate, createHashRouter } from "react-router-dom";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/DarkModecontext";
 import { AuthContext } from "./context/authContext";
@@ -56,7 +56,7 @@ function App() {
     return children
   }
 
-  const router = createBrowserRouter([
+  const router = createHashRouter([
     {
       path: "/",
       element: [
